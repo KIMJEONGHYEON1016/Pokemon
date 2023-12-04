@@ -1,0 +1,42 @@
+//
+//  GoogleLoginService.swift
+//  PokemonApp
+//
+//  Created by 김정현 on 2023/12/04.
+//
+
+import Foundation
+import GoogleSignIn
+import FirebaseCore
+import FirebaseAuth
+
+class GoogleAuthentication {
+    weak var delegate: SocialAuthenticationDelegate?
+    
+    func signIn(_ vc: UIViewController, delegate: SocialAuthenticationDelegate) {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        self.delegate = delegate
+        
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+        GIDSignIn.sharedInstance.signIn(withPresenting: vc) { [unowned self] user, error in
+            
+            if let error = error {
+                self.delegate?.onAuthenticationError(AppError.custom(error.localizedDescription))
+                return
+            }
+            
+            guard let token = user?.user.accessToken, let idToken = user?.user.idToken else { return }
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: token.tokenString)
+            Auth.auth().signIn(with: credential) { (auth, error) in
+                if let error = error {
+                    debugPrint("Auth Error: \(error.localizedDescription)")
+                    self.delegate?.onAuthenticationError(AppError.custom(error.localizedDescription))
+                } else {
+                    self.delegate?.onAuthenticationSuccess(AppUser(token: auth?.user.providerID ?? "", name: auth?.user.displayName ?? "",
+                     email: auth?.user.email ?? "", userId: auth?.user.uid ?? "", imagePath: auth?.user.photoURL))
+                }
+            }
+        }
+    }
+}
