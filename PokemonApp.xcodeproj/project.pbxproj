@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5382A63F2B15DD8E00C1671B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A63E2B15DD8E00C1671B /* AppDelegate.swift */; };
 		5382A6412B15DD8E00C1671B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A6402B15DD8E00C1671B /* SceneDelegate.swift */; };
-		5382A6432B15DD8E00C1671B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A6422B15DD8E00C1671B /* ViewController.swift */; };
+		5382A6432B15DD8E00C1671B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A6422B15DD8E00C1671B /* MainView.swift */; };
 		5382A6482B15DDA500C1671B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5382A6472B15DDA500C1671B /* Assets.xcassets */; };
 		5382A6562B15DDA600C1671B /* PokemonAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A6552B15DDA600C1671B /* PokemonAppTests.swift */; };
 		5382A6602B15DDA600C1671B /* PokemonAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A65F2B15DDA600C1671B /* PokemonAppUITests.swift */; };
@@ -48,7 +48,7 @@
 		5382A63B2B15DD8E00C1671B /* PokemonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5382A63E2B15DD8E00C1671B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5382A6402B15DD8E00C1671B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5382A6422B15DD8E00C1671B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5382A6422B15DD8E00C1671B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5382A6472B15DDA500C1671B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5382A64C2B15DDA500C1671B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5382A6512B15DDA600C1671B /* PokemonAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,7 +177,7 @@
 			children = (
 				5382A6A02B1DE28300C1671B /* Main.storyboard */,
 				5382A6712B17400B00C1671B /* LoginView.swift */,
-				5382A6422B15DD8E00C1671B /* ViewController.swift */,
+				5382A6422B15DD8E00C1671B /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -325,7 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5382A6972B1DD8FC00C1671B /* AppUser.swift in Sources */,
-				5382A6432B15DD8E00C1671B /* ViewController.swift in Sources */,
+				5382A6432B15DD8E00C1671B /* MainView.swift in Sources */,
 				5382A6992B1DD96E00C1671B /* AuthenticationViewModel.swift in Sources */,
 				5382A63F2B15DD8E00C1671B /* AppDelegate.swift in Sources */,
 				5382A69B2B1DDC8900C1671B /* GoogleAuthentication.swift in Sources */,
@@ -504,6 +504,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5GGUA44PPZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PokemonApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -531,6 +532,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5GGUA44PPZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PokemonApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

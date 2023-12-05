@@ -37,8 +37,6 @@ class AuthenticationViewModel {
 extension AuthenticationViewModel: SocialAuthenticationDelegate {
     func onAuthenticationSuccess(_ user: AppUser) {
         self.handlerAuthenticationSuccessfull?(user)
-        self.GoogleUserData.value = user
-
     }
     
     func onAuthenticationError(_ error: Error) {

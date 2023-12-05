@@ -67,7 +67,11 @@ class LoginView: UIViewController {
         authViewModel?.initializeGoogleLogin(self)
         authViewModel?.GoogleUserData.bind { (userData: AppUser) in
             UserDefaults.standard.set(userData.email, forKey: "UserEmailKey")
-            print(UserDefaults.standard.string(forKey: "UserEmailKey") ?? "")
+            
+            //화면 이동
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let MainVC = storyboard.instantiateViewController(withIdentifier: "MainView") as? MainView else { return }
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(MainVC, animated: false)
         }
     }
 }

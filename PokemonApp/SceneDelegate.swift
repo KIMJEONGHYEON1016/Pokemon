@@ -10,13 +10,40 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var isLogged: Bool = false
+    
+    //화면 전환 함수
+    func changeRootViewController (_ vc: UIViewController, animated: Bool) {
+        guard let window = self.window else { return }
+        window.rootViewController = vc
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        if UserDefaults.standard.string(forKey: "UserEmailKey") != nil {
+            // UserEmailKey 값이 존재하는 경우
+            isLogged = true
+        } else {
+            // UserEmailKey 값이 존재하지 않는 경우
+            isLogged = false
+        }
+   
+        
+        if isLogged == false {
+            guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginView else { return }
+            window?.rootViewController = loginVC
+        } else {
+            guard let MainViewVC = storyboard.instantiateViewController(withIdentifier: "MainView") as? MainView else { return }
+            window?.rootViewController = MainViewVC
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
