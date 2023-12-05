@@ -19,7 +19,7 @@ class GoogleAuthentication {
         
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = config
-        GIDSignIn.sharedInstance.signIn(withPresenting: vc) { [weak self] user, error in
+        GIDSignIn.sharedInstance.signIn(withPresenting: vc) { user, error in
             
             if let error = error {
                 completion(.failure(error))

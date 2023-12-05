@@ -19,7 +19,6 @@ class AuthenticationViewModel {
     
     init(_ google: GoogleAuthentication) {
         self.google = google
-        
     }
     
     func initializeGoogleLogin(_ vc: UIViewController) {
@@ -38,6 +37,8 @@ class AuthenticationViewModel {
 extension AuthenticationViewModel: SocialAuthenticationDelegate {
     func onAuthenticationSuccess(_ user: AppUser) {
         self.handlerAuthenticationSuccessfull?(user)
+        self.GoogleUserData.value = user
+
     }
     
     func onAuthenticationError(_ error: Error) {

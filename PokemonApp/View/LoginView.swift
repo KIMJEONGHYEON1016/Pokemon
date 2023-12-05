@@ -14,10 +14,13 @@ class LoginView: UIViewController {
     @IBOutlet weak var Image2: UIImageView!
     @IBOutlet weak var Image3: UIImageView!
     
-
+    var googleAuth: GoogleAuthentication?
+    var authViewModel: AuthenticationViewModel?
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("aaa")
+        googleAuth = GoogleAuthentication()
+        authViewModel = AuthenticationViewModel(googleAuth!)
         performAnimationSequence()
     }
     
@@ -60,18 +63,11 @@ class LoginView: UIViewController {
     
     //구글 로그인 버튼
     @IBAction func actionButtonGoogle(_ sender: Any) {
-        let googleAuth = GoogleAuthentication()
-        let authViewModel = AuthenticationViewModel(googleAuth)
         //로그인 기능 구현
-        authViewModel.initializeGoogleLogin(self)
-        
-        //구글 이메일을 UserDeafaults에 저장
-        authViewModel.GoogleUserData.bind { [weak self] (userData: AppUser) in
+        authViewModel?.initializeGoogleLogin(self)
+        authViewModel?.GoogleUserData.bind { (userData: AppUser) in
             UserDefaults.standard.set(userData.email, forKey: "UserEmailKey")
-            print(userData.email ?? "a")
+            print(UserDefaults.standard.string(forKey: "UserEmailKey") ?? "")
         }
     }
-    
-   
-    
 }
