@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53689F562B2042E300748595 /* PokeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53689F552B2042E300748595 /* PokeModel.swift */; };
+		53689F5A2B2073C700748595 /* PokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53689F592B2073C700748595 /* PokeService.swift */; };
 		5382A63F2B15DD8E00C1671B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A63E2B15DD8E00C1671B /* AppDelegate.swift */; };
 		5382A6412B15DD8E00C1671B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A6402B15DD8E00C1671B /* SceneDelegate.swift */; };
 		5382A6432B15DD8E00C1671B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A6422B15DD8E00C1671B /* MainView.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		53689F552B2042E300748595 /* PokeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeModel.swift; sourceTree = "<group>"; };
+		53689F592B2073C700748595 /* PokeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeService.swift; sourceTree = "<group>"; };
 		5382A63B2B15DD8E00C1671B /* PokemonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5382A63E2B15DD8E00C1671B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5382A6402B15DD8E00C1671B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				5382A6962B1DD8FC00C1671B /* AppUser.swift */,
+				53689F552B2042E300748595 /* PokeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				5382A69A2B1DDC8900C1671B /* GoogleAuthentication.swift */,
+				53689F592B2073C700748595 /* PokeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -326,8 +332,10 @@
 			files = (
 				5382A6972B1DD8FC00C1671B /* AppUser.swift in Sources */,
 				5382A6432B15DD8E00C1671B /* MainView.swift in Sources */,
+				53689F5A2B2073C700748595 /* PokeService.swift in Sources */,
 				5382A6992B1DD96E00C1671B /* AuthenticationViewModel.swift in Sources */,
 				5382A63F2B15DD8E00C1671B /* AppDelegate.swift in Sources */,
+				53689F562B2042E300748595 /* PokeModel.swift in Sources */,
 				5382A69B2B1DDC8900C1671B /* GoogleAuthentication.swift in Sources */,
 				5382A6722B17400B00C1671B /* LoginView.swift in Sources */,
 				5382A6412B15DD8E00C1671B /* SceneDelegate.swift in Sources */,
