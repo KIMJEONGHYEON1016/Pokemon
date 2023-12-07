@@ -14,20 +14,34 @@ class MainView: UIViewController {
     
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
-    
+    var id = 100
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pokeService = PokeService()
         pokemonViewModel = PokemonViewModel(pokeService!)
-        pokemonViewModel?.fetchMainPokemon(id: 102)       //id에 관한 메서드 변경 예정
-        MainPokemonImage()
+        pokemonViewModel?.fetchMainPokemon(id: self.id)       //id에 관한 메서드 변경 예정
+        pokemonViewModel?.fetchMainPokemonName(id: self.id)
+        PokemonImage()
+        PokemonName()
         MoveMainPokemon()
 
         }
         
+    
+    //관찰 후 메인 포켓몬 이름 변경
+    func PokemonName() {
+        pokemonViewModel?.PokemonSpecies.bind { data in
+            guard let mainPokemon = data.names?[2], let nameString = mainPokemon.name else {
+                return
+            }
+            self.MainPokemonName.text = nameString
+        }
+    }
+
+    
     //관찰 후 메인 포켓몬 이미지 변경
-    func MainPokemonImage() {
+    func PokemonImage() {
         pokemonViewModel?.PokemonData.bind { data in
             guard let imageUrlString = data.sprites?.other?.home?.front_default else {
                 return

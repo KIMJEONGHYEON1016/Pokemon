@@ -104,9 +104,8 @@
                                     <constraint firstAttribute="width" constant="250" id="X95-fg-Sdd"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="포켓몬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLA-HK-QoN">
-                                <rect key="frame" x="158" y="491" width="76" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="포켓몬" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLA-HK-QoN">
+                                <rect key="frame" x="72" y="491" width="250" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -134,7 +133,9 @@
                         <color key="backgroundColor" red="0.55894991321618015" green="0.76942896842956543" blue="0.62589967533640634" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Hba-mu-vfm" firstAttribute="trailing" secondItem="llh-KG-e35" secondAttribute="trailingMargin" id="8h7-QQ-zq8"/>
+                            <constraint firstItem="GLA-HK-QoN" firstAttribute="centerX" secondItem="llh-KG-e35" secondAttribute="centerX" id="D7P-l8-pk1"/>
                             <constraint firstItem="eHO-9A-8IO" firstAttribute="centerX" secondItem="llh-KG-e35" secondAttribute="centerX" id="G5V-s4-wgn"/>
+                            <constraint firstItem="GLA-HK-QoN" firstAttribute="top" secondItem="eHO-9A-8IO" secondAttribute="bottom" constant="28" id="caL-pn-glw"/>
                             <constraint firstItem="eHO-9A-8IO" firstAttribute="top" secondItem="Hba-mu-vfm" secondAttribute="bottom" constant="68" id="d9X-Ak-aFT"/>
                             <constraint firstItem="Hba-mu-vfm" firstAttribute="top" secondItem="pOn-29-u9D" secondAttribute="top" constant="16" id="kRe-gm-MUi"/>
                             <constraint firstItem="Hba-mu-vfm" firstAttribute="leading" secondItem="pOn-29-u9D" secondAttribute="leading" constant="299" id="uIm-gn-Tgv"/>

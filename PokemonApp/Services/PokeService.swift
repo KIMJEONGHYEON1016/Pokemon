@@ -8,7 +8,7 @@
 import Foundation
 
 class PokeService {
-    func getData(url: String, completion: @escaping (Result<PokemonSelected, Error>) -> Void) {
+    func getData <T: Decodable> (url: String, completion: @escaping (Result<T, Error>) -> Void) {
         guard let url = URL(string: url) else {
             return
         }
@@ -17,9 +17,9 @@ class PokeService {
             guard let data = data else { return }
             
             do {
-                let pokemonSelected = try JSONDecoder().decode(PokemonSelected.self, from: data)
+                let result = try JSONDecoder().decode(T.self, from: data)
                 DispatchQueue.main.async {
-                    completion(.success(pokemonSelected))
+                    completion(.success(result))
                 }
             } catch {
                 print("Error decoding JSON:", error)

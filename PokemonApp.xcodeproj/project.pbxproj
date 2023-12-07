@@ -29,6 +29,7 @@
 		5382A6A22B1DE28300C1671B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5382A6A02B1DE28300C1671B /* Main.storyboard */; };
 		538ED7892B21824300CBDC04 /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538ED7882B21824300CBDC04 /* PokemonViewModel.swift */; };
 		538ED78B2B218A7C00CBDC04 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538ED78A2B218A7C00CBDC04 /* URL+Extension.swift */; };
+		538ED78D2B21BB2500CBDC04 /* PokeSpeciesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538ED78C2B21BB2500CBDC04 /* PokeSpeciesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		5382A6A12B1DE28300C1671B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		538ED7882B21824300CBDC04 /* PokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewModel.swift; sourceTree = "<group>"; };
 		538ED78A2B218A7C00CBDC04 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		538ED78C2B21BB2500CBDC04 /* PokeSpeciesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeSpeciesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			children = (
 				5382A6962B1DD8FC00C1671B /* AppUser.swift */,
 				53689F552B2042E300748595 /* PokeModel.swift */,
+				538ED78C2B21BB2500CBDC04 /* PokeSpeciesModel.swift */,
 				538ED78A2B218A7C00CBDC04 /* URL+Extension.swift */,
 			);
 			path = Model;
@@ -345,6 +348,7 @@
 				53689F562B2042E300748595 /* PokeModel.swift in Sources */,
 				538ED7892B21824300CBDC04 /* PokemonViewModel.swift in Sources */,
 				5382A69B2B1DDC8900C1671B /* GoogleAuthentication.swift in Sources */,
+				538ED78D2B21BB2500CBDC04 /* PokeSpeciesModel.swift in Sources */,
 				5382A6722B17400B00C1671B /* LoginView.swift in Sources */,
 				5382A6412B15DD8E00C1671B /* SceneDelegate.swift in Sources */,
 			);

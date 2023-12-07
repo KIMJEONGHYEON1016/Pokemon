@@ -13,3 +13,10 @@ extension URL {
     }
     
 }
+
+extension URL {
+    static func urlWithsepc(id: Int) -> String? {
+        return String("https://pokeapi.co/api/v2/pokemon-species/\(id)/")
+    }
+    
+}
