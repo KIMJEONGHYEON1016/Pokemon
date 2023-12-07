@@ -98,10 +98,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eHO-9A-8IO">
-                                <rect key="frame" x="89" y="213" width="215" height="252"/>
+                                <rect key="frame" x="71.666666666666686" y="213" width="250" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="215" id="hiB-29-Js2"/>
-                                    <constraint firstAttribute="height" constant="252" id="nql-z6-iPS"/>
+                                    <constraint firstAttribute="height" constant="250" id="03H-u0-Wgc"/>
+                                    <constraint firstAttribute="width" constant="250" id="X95-fg-Sdd"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="포켓몬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLA-HK-QoN">
@@ -111,14 +111,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQI-oV-AQA">
-                                <rect key="frame" x="142" y="587" width="108" height="107"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" image="free-icon-pokeball-528101"/>
-                                </buttonConfiguration>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hba-mu-vfm">
                                 <rect key="frame" x="299" y="75" width="78" height="70"/>
                                 <constraints>
@@ -127,6 +119,14 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" image="포켓몬 도감"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQI-oV-AQA">
+                                <rect key="frame" x="143" y="682" width="108" height="107"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" image="free-icon-pokeball-528101"/>
                                 </buttonConfiguration>
                             </button>
                         </subviews>
@@ -141,7 +141,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mainPokemon" destination="eHO-9A-8IO" id="3mn-eh-2o7"/>
+                        <outlet property="MainPokemon" destination="eHO-9A-8IO" id="USb-RF-9Yp"/>
+                        <outlet property="MainPokemonName" destination="GLA-HK-QoN" id="CgG-28-cF3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cx1-AK-Jj3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

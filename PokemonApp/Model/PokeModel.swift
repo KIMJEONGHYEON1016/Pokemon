@@ -8,29 +8,33 @@
 import Foundation
 
 struct PokemonPage: Codable {
-    let count: Int
-    let next: String
-    let results: [Pokemon]
+    let count: Int?
+    let next: String?
+    let results: [Pokemon]?
 }
 
 struct Pokemon: Codable, Hashable, Equatable {
     var id = UUID()
-    let name: String
-    let url: String
+    let name: String?
+    let url: String?
 }
 
 
-struct DetailPokemon: Codable{
-    let id: Int
-    let height: Int
-    let weight: Int
-}
 
 struct PokemonSelected: Codable {
-    var sprites: PokemonSprites
-    var weight: Int
+    var sprites: PokemonSprites?
+    var weight: Int?
 }
 
 struct PokemonSprites: Codable {
     var front_default: String
+    var other: PokemonOther?
+}
+
+struct PokemonOther: Codable {
+    var home: PokemonHome?
+}
+
+struct PokemonHome: Codable {
+    var front_default: String?
 }

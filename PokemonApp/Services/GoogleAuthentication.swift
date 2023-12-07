@@ -12,7 +12,7 @@ import FirebaseCore
 import FirebaseAuth
 
 class GoogleAuthentication {
-    weak var delegate: SocialAuthenticationDelegate?
+//    weak var delegate: SocialAuthenticationDelegate?
     
     func signIn(_ vc: UIViewController, completion: @escaping (Result<AppUser, Error>) -> Void) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }

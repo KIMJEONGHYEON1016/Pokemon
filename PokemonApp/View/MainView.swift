@@ -7,27 +7,81 @@
 
 import UIKit
 
-    class MainView: UIViewController {
+class MainView: UIViewController {
+    
+    @IBOutlet weak var MainPokemonName: UILabel!
+    @IBOutlet weak var MainPokemon: UIImageView!
+    
+    var pokeService: PokeService?
+    var pokemonViewModel: PokemonViewModel?
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        pokeService = PokeService()
+        pokemonViewModel = PokemonViewModel(pokeService!)
+        pokemonViewModel?.fetchMainPokemon(id: 102)       //id에 관한 메서드 변경 예정
+        MainPokemonImage()
+        MoveMainPokemon()
 
-        @IBOutlet weak var mainPokemon: UIImageView!
+        }
         
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            PokeService().getData(url: "https://pokeapi.co/api/v2/pokemon/25/") { [weak self] pokemonSprites in
-                       if let urlString = pokemonSprites?.front_default, let imageURL = URL(string: urlString) {
-                           // Download the image asynchronously
-                           DispatchQueue.global().async {
-                               if let imageData = try? Data(contentsOf: imageURL) {
-                                   // Update UI on the main queue
-                                   DispatchQueue.main.async {
-                                       self?.mainPokemon.image = UIImage(data: imageData)
-                                   }
-                               }
-                           }
-                       }
-                   }
-               }
-
-
+    //관찰 후 메인 포켓몬 이미지 변경
+    func MainPokemonImage() {
+        pokemonViewModel?.PokemonData.bind { data in
+            guard let imageUrlString = data.sprites?.other?.home?.front_default else {
+                return
+            }
+            guard let imageUrl = URL(string: imageUrlString) else {
+                return
+            }
+            
+            URLSession.shared.dataTask(with: imageUrl) { data, response, error in
+                if let error = error {
+                    print("Error fetching image data: \(error)")
+                    return
+                }
+                
+                guard let imageData = data else {
+                    print("No image data received")
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    if let image = UIImage(data: imageData) {
+                        self.MainPokemon.image = image
+                    }
+                    
+                }
+            }.resume()
+        }
     }
 
+
+   
+    
+    //포켓몬 Move
+    func MoveMainPokemon(){
+        self.shakeAnimation(imageView: self.MainPokemon) {
+            // 모든 애니메이션이 끝나면 1초 후에 다시 애니메이션 반복
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.MoveMainPokemon()
+            }
+        }
+    }
+    func shakeAnimation(imageView: UIImageView, completion: @escaping () -> Void) {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.2
+        animation.repeatCount = 2
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: imageView.center.x, y: imageView.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: imageView.center.x, y: imageView.center.y - 40))
+        imageView.layer.add(animation, forKey: "position")
+        
+        // 애니메이션이 끝나면 completion 블록 실행
+        DispatchQueue.main.asyncAfter(deadline: .now() + animation.duration) {
+            completion()
+        }
+    }
+
+}

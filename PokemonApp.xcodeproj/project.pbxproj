@@ -27,6 +27,8 @@
 		5382A69B2B1DDC8900C1671B /* GoogleAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A69A2B1DDC8900C1671B /* GoogleAuthentication.swift */; };
 		5382A69D2B1DDD1300C1671B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5382A69C2B1DDD1300C1671B /* FirebaseAnalytics */; };
 		5382A6A22B1DE28300C1671B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5382A6A02B1DE28300C1671B /* Main.storyboard */; };
+		538ED7892B21824300CBDC04 /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538ED7882B21824300CBDC04 /* PokemonViewModel.swift */; };
+		538ED78B2B218A7C00CBDC04 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538ED78A2B218A7C00CBDC04 /* URL+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		5382A6982B1DD96E00C1671B /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		5382A69A2B1DDC8900C1671B /* GoogleAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthentication.swift; sourceTree = "<group>"; };
 		5382A6A12B1DE28300C1671B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		538ED7882B21824300CBDC04 /* PokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewModel.swift; sourceTree = "<group>"; };
+		538ED78A2B218A7C00CBDC04 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 			children = (
 				5382A6962B1DD8FC00C1671B /* AppUser.swift */,
 				53689F552B2042E300748595 /* PokeModel.swift */,
+				538ED78A2B218A7C00CBDC04 /* URL+Extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				5382A6982B1DD96E00C1671B /* AuthenticationViewModel.swift */,
+				538ED7882B21824300CBDC04 /* PokemonViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -333,9 +339,11 @@
 				5382A6972B1DD8FC00C1671B /* AppUser.swift in Sources */,
 				5382A6432B15DD8E00C1671B /* MainView.swift in Sources */,
 				53689F5A2B2073C700748595 /* PokeService.swift in Sources */,
+				538ED78B2B218A7C00CBDC04 /* URL+Extension.swift in Sources */,
 				5382A6992B1DD96E00C1671B /* AuthenticationViewModel.swift in Sources */,
 				5382A63F2B15DD8E00C1671B /* AppDelegate.swift in Sources */,
 				53689F562B2042E300748595 /* PokeModel.swift in Sources */,
+				538ED7892B21824300CBDC04 /* PokemonViewModel.swift in Sources */,
 				5382A69B2B1DDC8900C1671B /* GoogleAuthentication.swift in Sources */,
 				5382A6722B17400B00C1671B /* LoginView.swift in Sources */,
 				5382A6412B15DD8E00C1671B /* SceneDelegate.swift in Sources */,
