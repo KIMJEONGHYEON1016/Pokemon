@@ -15,7 +15,3 @@ struct AppUser {
     var imagePath: URL?
 }
 
-protocol SocialAuthenticationDelegate: AnyObject {
-    func onAuthenticationSuccess(_ user: AppUser)
-    func onAuthenticationError(_ error: Error)
-}

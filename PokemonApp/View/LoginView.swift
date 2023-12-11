@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleSignIn
+import Combine
 
 class LoginView: UIViewController {
     
@@ -16,7 +17,8 @@ class LoginView: UIViewController {
     
     var googleAuth: GoogleAuthentication?
     var authViewModel: AuthenticationViewModel?
-        
+    private var cancellables = Set<AnyCancellable>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         googleAuth = GoogleAuthentication()
@@ -63,15 +65,25 @@ class LoginView: UIViewController {
     
     //구글 로그인 버튼
     @IBAction func actionButtonGoogle(_ sender: Any) {
-        //로그인 기능 구현
         authViewModel?.initializeGoogleLogin(self)
-        authViewModel?.GoogleUserData.bind { (userData: AppUser) in
-            UserDefaults.standard.set(userData.email, forKey: "UserEmailKey")
-            
-            //화면 이동
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            guard let MainVC = storyboard.instantiateViewController(withIdentifier: "MainView") as? MainView else { return }
-            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(MainVC, animated: false)
-        }
+        authViewModel?.GoogleUserData
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    // Publisher가 성공적으로 완료된 경우 (오류가 발생하지 않은 경우)
+                    
+                    break
+                case .failure(let error):
+                    print("Error occurred: \(error)")
+                }
+            }, receiveValue: { userData in
+                // Publisher로부터 값을 받는 클로저
+                UserDefaults.standard.set(userData.email, forKey: "UserEmailKey")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                guard let MainVC = storyboard.instantiateViewController(withIdentifier: "MainView") as? MainView else { return }
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(MainVC, animated: false)
+        })
+            .store(in: &cancellables)
     }
+
 }

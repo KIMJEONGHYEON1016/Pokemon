@@ -7,61 +7,25 @@
 
 import Foundation
 import UIKit
+import Combine
 
 class AuthenticationViewModel {
-    
     private var google: GoogleAuthentication
-    var GoogleUserData: Observable<AppUser> = Observable(AppUser(token: "", name: "",
-                                                                 email: "", userId: ""))
+    private var cancellables = Set<AnyCancellable>()
 
-    var handlerAuthenticationSuccessfull: ((_ user: AppUser) -> Void)?
-    var handlerAuthenticationFailure: ((_ error: Error) -> Void)?
-    
+    var GoogleUserData: PassthroughSubject<AppUser, Never> = PassthroughSubject<AppUser, Never>()
+
     init(_ google: GoogleAuthentication) {
         self.google = google
     }
-    
+
     func initializeGoogleLogin(_ vc: UIViewController) {
-        google.signIn(vc) { [weak self] result in
-            switch result {
-            case .success(let userData):
-                self?.GoogleUserData.value = userData
-            case .failure(let error):
-                print("Error during Google sign-in: \(error)")
-            }
-        }
-    }
-
-}
-
-extension AuthenticationViewModel: SocialAuthenticationDelegate {
-    func onAuthenticationSuccess(_ user: AppUser) {
-        self.handlerAuthenticationSuccessfull?(user)
-    }
-    
-    func onAuthenticationError(_ error: Error) {
-        self.handlerAuthenticationFailure?(error)
-    }
-}
-
-
-class Observable<T> {
-    
-    typealias Listener = (T) -> Void
-    var listener: Listener?
-    
-    func bind(_ listener: Listener?) {
-        self.listener = listener
-        listener?(value)
-    }
-    
-    var value: T {
-        didSet {
-            listener?(value)
-        }
-    }
-    
-    init(_ value: T) {
-        self.value = value
+        google.signIn(vc)
+            .sink(receiveCompletion: { completion in
+                // 에러 처리 로직
+            }, receiveValue: { [weak self] userData in
+                self?.GoogleUserData.send(userData)
+            })
+            .store(in: &cancellables)
     }
 }
