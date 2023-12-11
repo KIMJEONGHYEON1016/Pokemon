@@ -29,6 +29,8 @@ struct PokemonSelected: Codable {
 struct PokemonSprites: Codable {
     var front_default: String
     var other: PokemonOther?
+    var back_default: String
+    var versions: PokemonVersions?
 }
 
 struct PokemonOther: Codable {
@@ -37,4 +39,20 @@ struct PokemonOther: Codable {
 
 struct PokemonHome: Codable {
     var front_default: String?
+}
+
+
+struct PokemonVersions: Codable {
+    var generation_v: PokemonGenerationV?
+}
+struct PokemonGenerationV: Codable {
+    var black_white: PokemonBlackWhite?
+}
+
+struct PokemonBlackWhite: Codable {
+    var animated: PokemonAnimated?
+}
+struct PokemonAnimated: Codable {
+    var back_default: String
+ 
 }

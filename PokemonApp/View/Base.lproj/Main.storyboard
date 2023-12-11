@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -117,7 +118,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" image="포켓몬 도감"/>
+                                    <backgroundConfiguration key="background" image="포켓몬 도감"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQI-oV-AQA">
@@ -127,6 +128,9 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" image="free-icon-pokeball-528101"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="BattleBtn:" destination="Svw-b6-4Vt" eventType="touchUpInside" id="iME-Ta-dhh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pOn-29-u9D"/>
@@ -150,14 +154,64 @@
             </objects>
             <point key="canvasLocation" x="1142.7480916030534" y="-27.464788732394368"/>
         </scene>
+        <!--Battle View-->
+        <scene sceneID="kRS-AD-OMl">
+            <objects>
+                <viewController storyboardIdentifier="BattleView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dkf-ji-tgj" customClass="BattleView" customModule="PokemonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fHk-zP-axe">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_4330" translatesAutoresizingMaskIntoConstraints="NO" id="7iY-SV-MDd">
+                                <rect key="frame" x="-64" y="0.0" width="494" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l7c-H7-nEc">
+                                <rect key="frame" x="167" y="147" width="210" height="210"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="210" id="JTD-3q-YOt"/>
+                                    <constraint firstAttribute="height" constant="210" id="iXe-fZ-shI"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QuW-Kg-mzW" customClass="FLAnimatedImageView">
+                                <rect key="frame" x="-77" y="418" width="400" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="1un-Cq-NYU"/>
+                                    <constraint firstAttribute="height" constant="400" id="2Vs-yl-UJv"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3uI-Sq-vUj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3uI-Sq-vUj" firstAttribute="trailing" secondItem="l7c-H7-nEc" secondAttribute="trailing" constant="16" id="EYU-fP-ets"/>
+                            <constraint firstItem="l7c-H7-nEc" firstAttribute="top" secondItem="3uI-Sq-vUj" secondAttribute="top" constant="88" id="GRx-dT-dSi"/>
+                            <constraint firstItem="3uI-Sq-vUj" firstAttribute="bottom" secondItem="QuW-Kg-mzW" secondAttribute="bottom" id="U3I-ZW-W6c"/>
+                            <constraint firstItem="QuW-Kg-mzW" firstAttribute="leading" secondItem="3uI-Sq-vUj" secondAttribute="leading" constant="-77" id="vTm-HJ-lIg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="R0U-UX-bEH"/>
+                    <connections>
+                        <outlet property="PartnerPokemon" destination="QuW-Kg-mzW" id="BHN-gr-PG9"/>
+                        <outlet property="WildPokemon" destination="l7c-H7-nEc" id="jb1-zB-6ds"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hPC-FJ-lVX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2316.7938931297708" y="-27.464788732394368"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="IMG_4330" width="435" height="750"/>
         <image name="KakaoTalk_Photo_2023-12-05-20-49-08" width="320" height="568"/>
         <image name="free-icon-charmander-188990" width="512" height="512"/>
         <image name="free-icon-pikachu-188987" width="512" height="512"/>
         <image name="free-icon-pokeball-528101" width="512" height="512"/>
         <image name="free-icon-squirtle-188988" width="512" height="512"/>
         <image name="google-sign" width="1108" height="142"/>
-        <image name="포켓몬 도감" width="200" height="165"/>
+        <image name="포켓몬 도감" width="200" height="165"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -98,4 +98,10 @@ class MainView: UIViewController {
         }
     }
 
+    @IBAction func BattleBtn(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let battleVC = storyboard.instantiateViewController(withIdentifier: "BattleView") as! BattleView
+        battleVC.modalPresentationStyle = .fullScreen
+        present(battleVC, animated: true)
+    }
 }
