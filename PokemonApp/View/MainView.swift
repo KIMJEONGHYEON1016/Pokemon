@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class MainView: UIViewController {
     
@@ -15,60 +16,59 @@ class MainView: UIViewController {
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
     var id = 100
-    
+    private var cancellables = Set<AnyCancellable>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         pokeService = PokeService()
         pokemonViewModel = PokemonViewModel(pokeService!)
         pokemonViewModel?.fetchMainPokemon(id: self.id)       //id에 관한 메서드 변경 예정
         pokemonViewModel?.fetchMainPokemonName(id: self.id)
-        PokemonImage()
-        PokemonName()
         MoveMainPokemon()
-
+        PokemonName()
+        PokemonImage()
         }
         
     
     //관찰 후 메인 포켓몬 이름 변경
     func PokemonName() {
-        pokemonViewModel?.PokemonSpecies.bind { data in
-            guard let mainPokemon = data.names?[2], let nameString = mainPokemon.name else {
-                return
-            }
-            self.MainPokemonName.text = nameString
-        }
+        pokemonViewModel?.$PokemonSpecies
+                    .receive(on: DispatchQueue.main)
+                    .sink { [weak self] data in
+                        guard let mainPokemon = data?.names?[2], let nameString = mainPokemon.name else {
+                            return
+                        }
+                        self?.MainPokemonName.text = nameString
+                    }
+                    .store(in: &cancellables)
     }
 
     
     //관찰 후 메인 포켓몬 이미지 변경
     func PokemonImage() {
-        pokemonViewModel?.PokemonData.bind { data in
-            guard let imageUrlString = data.sprites?.other?.home?.front_default else {
-                return
-            }
-            guard let imageUrl = URL(string: imageUrlString) else {
-                return
-            }
-            
-            URLSession.shared.dataTask(with: imageUrl) { data, response, error in
-                if let error = error {
-                    print("Error fetching image data: \(error)")
-                    return
-                }
-                
-                guard let imageData = data else {
-                    print("No image data received")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    if let image = UIImage(data: imageData) {
-                        self.MainPokemon.image = image
-                    }
-                    
-                }
-            }.resume()
-        }
+        pokemonViewModel?.$PokemonData
+                    .receive(on: DispatchQueue.main)
+                    .sink { data in
+                        guard let imageUrlString = data?.sprites?.other?.home?.front_default,
+                              let imageUrl = URL(string: imageUrlString) else { return }
+                        
+                        print(imageUrl)
+                        URLSession.shared.dataTask(with: imageUrl) { data, response, error in
+                            
+                            if let error = error {
+                                print("Error fetching image data: \(error)")
+                                return
+                            }
+                            
+                            guard let imageData = data else {
+                                print("No image data received")
+                                return
+                            }
+                            DispatchQueue.main.async {
+                                self.MainPokemon.image = UIImage(data: imageData)
+                                }
+                            }.resume()
+                    }.store(in: &cancellables)
     }
 
 

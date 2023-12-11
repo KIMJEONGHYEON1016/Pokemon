@@ -6,28 +6,14 @@
 //
 
 import Foundation
+import Combine
 
 class PokeService {
-    func getData <T: Decodable> (url: String, completion: @escaping (Result<T, Error>) -> Void) {
-        guard let url = URL(string: url) else {
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { (data, reponse, error) in
-            guard let data = data else { return }
-            
-            do {
-                let result = try JSONDecoder().decode(T.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(result))
-                }
-            } catch {
-                print("Error decoding JSON:", error)
-                DispatchQueue.main.async {
-                    completion(.failure(error)) // JSON 디코딩 실패 시 nil을 반환하거나 적절한 오류 처리
-                }
-            }
-        }.resume()
+    func getData<T: Decodable>(url: URL) -> AnyPublisher<T, Error> {
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: T.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
     }
 }
 

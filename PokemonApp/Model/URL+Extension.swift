@@ -8,15 +8,15 @@
 import Foundation
 
 extension URL {
-    static func urlWith(id: Int) -> String? {
-        return String("https://pokeapi.co/api/v2/pokemon/\(id)/")
+    static func urlWith(id: Int) -> URL? {
+        return URL(string: "https://pokeapi.co/api/v2/pokemon/\(id)/")
     }
     
 }
 
 extension URL {
-    static func urlWithsepc(id: Int) -> String? {
-        return String("https://pokeapi.co/api/v2/pokemon-species/\(id)/")
+    static func urlWithsepc(id: Int) -> URL? {
+        return URL(string: "https://pokeapi.co/api/v2/pokemon-species/\(id)/")
     }
     
 }
