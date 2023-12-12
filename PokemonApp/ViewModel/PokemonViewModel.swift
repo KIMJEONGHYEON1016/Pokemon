@@ -14,13 +14,19 @@ class PokemonViewModel {
     
     @Published var PokemonData: PokemonData?
     @Published var PokemonSpecies: PokeSpecies?
+    @Published var WildPokemonData: PokemonData?
+    @Published var PartnerPokemonPower: PokemonData?
+    @Published var WildPokemoPower: PokemonData?
 
+    
     init(_ Pokemon: PokeService) {
         self.Pokemon = Pokemon
     }
 
+    
+    
     // id는 포켓몬 고유 번호
-    func fetchMainPokemon(id: Int) {
+    func fetchPokemon(id: Int) {
         let url = URL.urlWith(id: id)
         guard let url = url else { return }
 
@@ -35,8 +41,25 @@ class PokemonViewModel {
             })
             .store(in: &cancellables)
     }
+   
+    
+    func fetchWildPokemon(id: Int) {
+        let url = URL.urlWith(id: id)
+        guard let url = url else { return }
 
-    func fetchMainPokemonName(id: Int) {
+        Pokemon.getData(url: url)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    print("Error during fetchMainPokemon: \(error)")
+                }
+            }, receiveValue: { [weak self] data in
+                self?.WildPokemonData = data
+            })
+            .store(in: &cancellables)
+    }
+    
+    func fetchPokemonName(id: Int) {
         let url = URL.urlWithsepc(id: id)
         guard let url = url else { return }
 
@@ -48,6 +71,39 @@ class PokemonViewModel {
                 }
             }, receiveValue: { [weak self] data in
                 self?.PokemonSpecies = data
+            })
+            .store(in: &cancellables)
+    }
+    
+    
+    func fetchPartnerPokemonPower(id: Int) {
+        let url = URL.urlWith(id: id)
+        guard let url = url else { return }
+        
+        Pokemon.getData(url: url)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    print("Error during fetchMainPokemon: \(error)")
+                }
+            }, receiveValue: { [weak self] data in
+                self?.PartnerPokemonPower = data
+            })
+            .store(in: &cancellables)
+    }
+    
+    func fetchWildPokemonpower(id: Int) {
+        let url = URL.urlWith(id: id)
+        guard let url = url else { return }
+
+        Pokemon.getData(url: url)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    print("Error during fetchMainPokemon: \(error)")
+                }
+            }, receiveValue: { [weak self] data in
+                self?.WildPokemoPower = data
             })
             .store(in: &cancellables)
     }

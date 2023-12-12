@@ -10,53 +10,53 @@
 		496C679574AE4FEB2F329537 /* Pods_PokemonApp_PokemonAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA7BC1BB53D87406DCF90915 /* Pods_PokemonApp_PokemonAppUITests.framework */; };
 		53689F5A2B2073C700748595 /* PokeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53689F592B2073C700748595 /* PokeService.swift */; };
 		537F44212B26ECF1005AA0E6 /* BattleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F44202B26ECF1005AA0E6 /* BattleView.swift */; };
-		537F468E2B28106C005AA0E6 /* DiamondPearl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46822B281068005AA0E6 /* DiamondPearl.swift */; };
-		537F468F2B28106C005AA0E6 /* UltraSunUltraMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F467D2B281067005AA0E6 /* UltraSunUltraMoon.swift */; };
-		537F46902B28106C005AA0E6 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46602B28105C005AA0E6 /* Stat.swift */; };
-		537F46912B28106C005AA0E6 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46782B281065005AA0E6 /* Version.swift */; };
-		537F46922B28106C005AA0E6 /* GenerationIii.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46702B281062005AA0E6 /* GenerationIii.swift */; };
-		537F46932B28106C005AA0E6 /* VersionGroupDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46652B28105E005AA0E6 /* VersionGroupDetails.swift */; };
-		537F46942B28106C005AA0E6 /* GenerationIi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46732B281064005AA0E6 /* GenerationIi.swift */; };
-		537F46952B28106C005AA0E6 /* Sprites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46852B281069005AA0E6 /* Sprites.swift */; };
-		537F46962B28106C005AA0E6 /* FireredLeafgreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46712B281063005AA0E6 /* FireredLeafgreen.swift */; };
-		537F46972B28106C005AA0E6 /* VersionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46612B28105D005AA0E6 /* VersionGroup.swift */; };
-		537F46982B28106C005AA0E6 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46812B281068005AA0E6 /* Ability.swift */; };
-		537F46992B28106C005AA0E6 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46862B28106A005AA0E6 /* Type.swift */; };
-		537F469A2B28106C005AA0E6 /* Moves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46742B281064005AA0E6 /* Moves.swift */; };
-		537F469B2B28106C005AA0E6 /* Yellow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F467B2B281066005AA0E6 /* Yellow.swift */; };
-		537F469C2B28106C005AA0E6 /* Platinum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46762B281065005AA0E6 /* Platinum.swift */; };
-		537F469D2B28106C005AA0E6 /* Silver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46692B28105F005AA0E6 /* Silver.swift */; };
-		537F469E2B28106C005AA0E6 /* GameIndices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46662B28105E005AA0E6 /* GameIndices.swift */; };
-		537F469F2B28106C005AA0E6 /* OmegarubyAlphasapphire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F466F2B281061005AA0E6 /* OmegarubyAlphasapphire.swift */; };
-		537F46A02B28106C005AA0E6 /* Abilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F468D2B28106C005AA0E6 /* Abilities.swift */; };
-		537F46A12B28106C005AA0E6 /* Animated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F466D2B281060005AA0E6 /* Animated.swift */; };
-		537F46A22B28106C005AA0E6 /* Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46682B28105F005AA0E6 /* Versions.swift */; };
-		537F46A32B28106C005AA0E6 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F467C2B281067005AA0E6 /* Stats.swift */; };
-		537F46A42B28106C005AA0E6 /* Emerald.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46892B28106B005AA0E6 /* Emerald.swift */; };
-		537F46A52B28106C005AA0E6 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46622B28105D005AA0E6 /* Types.swift */; };
-		537F46A62B28106C005AA0E6 /* GenerationVii.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F467A2B281066005AA0E6 /* GenerationVii.swift */; };
-		537F46A72B28106C005AA0E6 /* DreamWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46672B28105F005AA0E6 /* DreamWorld.swift */; };
-		537F46A82B28106C005AA0E6 /* Forms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F468C2B28106C005AA0E6 /* Forms.swift */; };
-		537F46A92B28106D005AA0E6 /* BlackWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F466A2B281060005AA0E6 /* BlackWhite.swift */; };
-		537F46AA2B28106D005AA0E6 /* MoveLearnMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F467E2B281067005AA0E6 /* MoveLearnMethod.swift */; };
-		537F46AB2B28106D005AA0E6 /* GenerationViii.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46832B281069005AA0E6 /* GenerationViii.swift */; };
-		537F46AC2B28106D005AA0E6 /* RubySapphire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F467F2B281068005AA0E6 /* RubySapphire.swift */; };
-		537F46AD2B28106D005AA0E6 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46872B28106A005AA0E6 /* Move.swift */; };
-		537F46AE2B28106D005AA0E6 /* GenerationI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46842B281069005AA0E6 /* GenerationI.swift */; };
-		537F46AF2B28106D005AA0E6 /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F468A2B28106B005AA0E6 /* Other.swift */; };
-		537F46B02B28106D005AA0E6 /* GenerationV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46632B28105D005AA0E6 /* GenerationV.swift */; };
-		537F46B12B28106D005AA0E6 /* GenerationIv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46792B281065005AA0E6 /* GenerationIv.swift */; };
-		537F46B22B28106D005AA0E6 /* RedBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F466B2B281060005AA0E6 /* RedBlue.swift */; };
-		537F46B32B28106D005AA0E6 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46752B281064005AA0E6 /* Icons.swift */; };
-		537F46B42B28106D005AA0E6 /* XY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F468B2B28106C005AA0E6 /* XY.swift */; };
-		537F46B52B28106D005AA0E6 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46802B281068005AA0E6 /* Species.swift */; };
-		537F46B62B28106D005AA0E6 /* HeartgoldSoulsilver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46722B281063005AA0E6 /* HeartgoldSoulsilver.swift */; };
-		537F46B72B28106D005AA0E6 /* GenerationVi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F466C2B281060005AA0E6 /* GenerationVi.swift */; };
-		537F46B82B28106D005AA0E6 /* PokemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F465F2B28105C005AA0E6 /* PokemonData.swift */; };
-		537F46B92B28106D005AA0E6 /* Gold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F466E2B281061005AA0E6 /* Gold.swift */; };
-		537F46BA2B28106D005AA0E6 /* OfficialArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46772B281065005AA0E6 /* OfficialArtwork.swift */; };
-		537F46BB2B28106D005AA0E6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46642B28105E005AA0E6 /* Home.swift */; };
-		537F46BC2B28106D005AA0E6 /* Crystal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46882B28106A005AA0E6 /* Crystal.swift */; };
+		537F46ED2B281721005AA0E6 /* GenerationIii.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46BE2B281720005AA0E6 /* GenerationIii.swift */; };
+		537F46EE2B281721005AA0E6 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46BF2B281720005AA0E6 /* Move.swift */; };
+		537F46EF2B281721005AA0E6 /* Silver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46C02B281720005AA0E6 /* Silver.swift */; };
+		537F46F02B281721005AA0E6 /* BlackWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46C12B281720005AA0E6 /* BlackWhite.swift */; };
+		537F46F12B281721005AA0E6 /* Forms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46C22B281720005AA0E6 /* Forms.swift */; };
+		537F46F22B281721005AA0E6 /* Sprites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46C32B281720005AA0E6 /* Sprites.swift */; };
+		537F46F32B281721005AA0E6 /* Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46C42B281720005AA0E6 /* Versions.swift */; };
+		537F46F42B281721005AA0E6 /* VersionGroupDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46C52B281720005AA0E6 /* VersionGroupDetails.swift */; };
+		537F46F52B281721005AA0E6 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46C62B281720005AA0E6 /* Ability.swift */; };
+		537F46F62B281721005AA0E6 /* GenerationVii.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46C72B281720005AA0E6 /* GenerationVii.swift */; };
+		537F46F72B281721005AA0E6 /* GenerationIv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46C82B281720005AA0E6 /* GenerationIv.swift */; };
+		537F46F82B281721005AA0E6 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46C92B281720005AA0E6 /* Type.swift */; };
+		537F46F92B281721005AA0E6 /* GameIndices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46CA2B281720005AA0E6 /* GameIndices.swift */; };
+		537F46FA2B281721005AA0E6 /* FireredLeafgreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46CB2B281720005AA0E6 /* FireredLeafgreen.swift */; };
+		537F46FB2B281721005AA0E6 /* Abilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46CC2B281720005AA0E6 /* Abilities.swift */; };
+		537F46FC2B281721005AA0E6 /* OfficialArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46CD2B281720005AA0E6 /* OfficialArtwork.swift */; };
+		537F46FD2B281721005AA0E6 /* PokemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46CE2B281720005AA0E6 /* PokemonData.swift */; };
+		537F46FE2B281721005AA0E6 /* GenerationV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46CF2B281720005AA0E6 /* GenerationV.swift */; };
+		537F46FF2B281721005AA0E6 /* OmegarubyAlphasapphire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46D02B281720005AA0E6 /* OmegarubyAlphasapphire.swift */; };
+		537F47002B281721005AA0E6 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46D12B281720005AA0E6 /* Version.swift */; };
+		537F47012B281721005AA0E6 /* VersionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46D22B281720005AA0E6 /* VersionGroup.swift */; };
+		537F47022B281721005AA0E6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46D32B281720005AA0E6 /* Home.swift */; };
+		537F47032B281721005AA0E6 /* Gold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46D42B281720005AA0E6 /* Gold.swift */; };
+		537F47042B281721005AA0E6 /* GenerationI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46D52B281720005AA0E6 /* GenerationI.swift */; };
+		537F47052B281721005AA0E6 /* Animated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46D62B281720005AA0E6 /* Animated.swift */; };
+		537F47062B281721005AA0E6 /* GenerationIi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46D72B281720005AA0E6 /* GenerationIi.swift */; };
+		537F47072B281721005AA0E6 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46D82B281720005AA0E6 /* Icons.swift */; };
+		537F47082B281721005AA0E6 /* Crystal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46D92B281720005AA0E6 /* Crystal.swift */; };
+		537F47092B281721005AA0E6 /* Moves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46DA2B281720005AA0E6 /* Moves.swift */; };
+		537F470A2B281721005AA0E6 /* Emerald.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46DB2B281720005AA0E6 /* Emerald.swift */; };
+		537F470B2B281721005AA0E6 /* Platinum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46DC2B281720005AA0E6 /* Platinum.swift */; };
+		537F470C2B281721005AA0E6 /* RubySapphire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46DD2B281720005AA0E6 /* RubySapphire.swift */; };
+		537F470D2B281721005AA0E6 /* HeartgoldSoulsilver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46DE2B281720005AA0E6 /* HeartgoldSoulsilver.swift */; };
+		537F470E2B281721005AA0E6 /* RedBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46DF2B281720005AA0E6 /* RedBlue.swift */; };
+		537F470F2B281721005AA0E6 /* Yellow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46E02B281720005AA0E6 /* Yellow.swift */; };
+		537F47102B281721005AA0E6 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46E12B281720005AA0E6 /* Species.swift */; };
+		537F47112B281721005AA0E6 /* GenerationVi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46E22B281720005AA0E6 /* GenerationVi.swift */; };
+		537F47122B281721005AA0E6 /* XY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46E32B281720005AA0E6 /* XY.swift */; };
+		537F47132B281721005AA0E6 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46E42B281720005AA0E6 /* Stats.swift */; };
+		537F47142B281721005AA0E6 /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46E52B281720005AA0E6 /* Other.swift */; };
+		537F47152B281721005AA0E6 /* DiamondPearl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46E62B281720005AA0E6 /* DiamondPearl.swift */; };
+		537F47162B281721005AA0E6 /* DreamWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46E72B281720005AA0E6 /* DreamWorld.swift */; };
+		537F47172B281721005AA0E6 /* UltraSunUltraMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46E82B281720005AA0E6 /* UltraSunUltraMoon.swift */; };
+		537F47182B281721005AA0E6 /* GenerationViii.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46E92B281720005AA0E6 /* GenerationViii.swift */; };
+		537F47192B281721005AA0E6 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46EA2B281720005AA0E6 /* Stat.swift */; };
+		537F471A2B281721005AA0E6 /* MoveLearnMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46EB2B281720005AA0E6 /* MoveLearnMethod.swift */; };
+		537F471B2B281721005AA0E6 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537F46EC2B281720005AA0E6 /* Types.swift */; };
 		5382A63F2B15DD8E00C1671B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A63E2B15DD8E00C1671B /* AppDelegate.swift */; };
 		5382A6412B15DD8E00C1671B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A6402B15DD8E00C1671B /* SceneDelegate.swift */; };
 		5382A6432B15DD8E00C1671B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A6422B15DD8E00C1671B /* MainView.swift */; };
@@ -102,53 +102,53 @@
 /* Begin PBXFileReference section */
 		53689F592B2073C700748595 /* PokeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeService.swift; sourceTree = "<group>"; };
 		537F44202B26ECF1005AA0E6 /* BattleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleView.swift; sourceTree = "<group>"; };
-		537F465F2B28105C005AA0E6 /* PokemonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonData.swift; sourceTree = "<group>"; };
-		537F46602B28105C005AA0E6 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
-		537F46612B28105D005AA0E6 /* VersionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionGroup.swift; sourceTree = "<group>"; };
-		537F46622B28105D005AA0E6 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
-		537F46632B28105D005AA0E6 /* GenerationV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationV.swift; sourceTree = "<group>"; };
-		537F46642B28105E005AA0E6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		537F46652B28105E005AA0E6 /* VersionGroupDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionGroupDetails.swift; sourceTree = "<group>"; };
-		537F46662B28105E005AA0E6 /* GameIndices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameIndices.swift; sourceTree = "<group>"; };
-		537F46672B28105F005AA0E6 /* DreamWorld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamWorld.swift; sourceTree = "<group>"; };
-		537F46682B28105F005AA0E6 /* Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Versions.swift; sourceTree = "<group>"; };
-		537F46692B28105F005AA0E6 /* Silver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Silver.swift; sourceTree = "<group>"; };
-		537F466A2B281060005AA0E6 /* BlackWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackWhite.swift; sourceTree = "<group>"; };
-		537F466B2B281060005AA0E6 /* RedBlue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedBlue.swift; sourceTree = "<group>"; };
-		537F466C2B281060005AA0E6 /* GenerationVi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationVi.swift; sourceTree = "<group>"; };
-		537F466D2B281060005AA0E6 /* Animated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animated.swift; sourceTree = "<group>"; };
-		537F466E2B281061005AA0E6 /* Gold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gold.swift; sourceTree = "<group>"; };
-		537F466F2B281061005AA0E6 /* OmegarubyAlphasapphire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmegarubyAlphasapphire.swift; sourceTree = "<group>"; };
-		537F46702B281062005AA0E6 /* GenerationIii.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationIii.swift; sourceTree = "<group>"; };
-		537F46712B281063005AA0E6 /* FireredLeafgreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireredLeafgreen.swift; sourceTree = "<group>"; };
-		537F46722B281063005AA0E6 /* HeartgoldSoulsilver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartgoldSoulsilver.swift; sourceTree = "<group>"; };
-		537F46732B281064005AA0E6 /* GenerationIi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationIi.swift; sourceTree = "<group>"; };
-		537F46742B281064005AA0E6 /* Moves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moves.swift; sourceTree = "<group>"; };
-		537F46752B281064005AA0E6 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
-		537F46762B281065005AA0E6 /* Platinum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platinum.swift; sourceTree = "<group>"; };
-		537F46772B281065005AA0E6 /* OfficialArtwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficialArtwork.swift; sourceTree = "<group>"; };
-		537F46782B281065005AA0E6 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
-		537F46792B281065005AA0E6 /* GenerationIv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationIv.swift; sourceTree = "<group>"; };
-		537F467A2B281066005AA0E6 /* GenerationVii.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationVii.swift; sourceTree = "<group>"; };
-		537F467B2B281066005AA0E6 /* Yellow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yellow.swift; sourceTree = "<group>"; };
-		537F467C2B281067005AA0E6 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
-		537F467D2B281067005AA0E6 /* UltraSunUltraMoon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltraSunUltraMoon.swift; sourceTree = "<group>"; };
-		537F467E2B281067005AA0E6 /* MoveLearnMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveLearnMethod.swift; sourceTree = "<group>"; };
-		537F467F2B281068005AA0E6 /* RubySapphire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubySapphire.swift; sourceTree = "<group>"; };
-		537F46802B281068005AA0E6 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
-		537F46812B281068005AA0E6 /* Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
-		537F46822B281068005AA0E6 /* DiamondPearl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiamondPearl.swift; sourceTree = "<group>"; };
-		537F46832B281069005AA0E6 /* GenerationViii.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationViii.swift; sourceTree = "<group>"; };
-		537F46842B281069005AA0E6 /* GenerationI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationI.swift; sourceTree = "<group>"; };
-		537F46852B281069005AA0E6 /* Sprites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprites.swift; sourceTree = "<group>"; };
-		537F46862B28106A005AA0E6 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
-		537F46872B28106A005AA0E6 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
-		537F46882B28106A005AA0E6 /* Crystal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crystal.swift; sourceTree = "<group>"; };
-		537F46892B28106B005AA0E6 /* Emerald.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emerald.swift; sourceTree = "<group>"; };
-		537F468A2B28106B005AA0E6 /* Other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Other.swift; sourceTree = "<group>"; };
-		537F468B2B28106C005AA0E6 /* XY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XY.swift; sourceTree = "<group>"; };
-		537F468C2B28106C005AA0E6 /* Forms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forms.swift; sourceTree = "<group>"; };
-		537F468D2B28106C005AA0E6 /* Abilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Abilities.swift; sourceTree = "<group>"; };
+		537F46BE2B281720005AA0E6 /* GenerationIii.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationIii.swift; sourceTree = "<group>"; };
+		537F46BF2B281720005AA0E6 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
+		537F46C02B281720005AA0E6 /* Silver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Silver.swift; sourceTree = "<group>"; };
+		537F46C12B281720005AA0E6 /* BlackWhite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackWhite.swift; sourceTree = "<group>"; };
+		537F46C22B281720005AA0E6 /* Forms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forms.swift; sourceTree = "<group>"; };
+		537F46C32B281720005AA0E6 /* Sprites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sprites.swift; sourceTree = "<group>"; };
+		537F46C42B281720005AA0E6 /* Versions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Versions.swift; sourceTree = "<group>"; };
+		537F46C52B281720005AA0E6 /* VersionGroupDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionGroupDetails.swift; sourceTree = "<group>"; };
+		537F46C62B281720005AA0E6 /* Ability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
+		537F46C72B281720005AA0E6 /* GenerationVii.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationVii.swift; sourceTree = "<group>"; };
+		537F46C82B281720005AA0E6 /* GenerationIv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationIv.swift; sourceTree = "<group>"; };
+		537F46C92B281720005AA0E6 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
+		537F46CA2B281720005AA0E6 /* GameIndices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameIndices.swift; sourceTree = "<group>"; };
+		537F46CB2B281720005AA0E6 /* FireredLeafgreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireredLeafgreen.swift; sourceTree = "<group>"; };
+		537F46CC2B281720005AA0E6 /* Abilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abilities.swift; sourceTree = "<group>"; };
+		537F46CD2B281720005AA0E6 /* OfficialArtwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficialArtwork.swift; sourceTree = "<group>"; };
+		537F46CE2B281720005AA0E6 /* PokemonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonData.swift; sourceTree = "<group>"; };
+		537F46CF2B281720005AA0E6 /* GenerationV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationV.swift; sourceTree = "<group>"; };
+		537F46D02B281720005AA0E6 /* OmegarubyAlphasapphire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmegarubyAlphasapphire.swift; sourceTree = "<group>"; };
+		537F46D12B281720005AA0E6 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		537F46D22B281720005AA0E6 /* VersionGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionGroup.swift; sourceTree = "<group>"; };
+		537F46D32B281720005AA0E6 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		537F46D42B281720005AA0E6 /* Gold.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gold.swift; sourceTree = "<group>"; };
+		537F46D52B281720005AA0E6 /* GenerationI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationI.swift; sourceTree = "<group>"; };
+		537F46D62B281720005AA0E6 /* Animated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animated.swift; sourceTree = "<group>"; };
+		537F46D72B281720005AA0E6 /* GenerationIi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationIi.swift; sourceTree = "<group>"; };
+		537F46D82B281720005AA0E6 /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		537F46D92B281720005AA0E6 /* Crystal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crystal.swift; sourceTree = "<group>"; };
+		537F46DA2B281720005AA0E6 /* Moves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moves.swift; sourceTree = "<group>"; };
+		537F46DB2B281720005AA0E6 /* Emerald.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emerald.swift; sourceTree = "<group>"; };
+		537F46DC2B281720005AA0E6 /* Platinum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platinum.swift; sourceTree = "<group>"; };
+		537F46DD2B281720005AA0E6 /* RubySapphire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RubySapphire.swift; sourceTree = "<group>"; };
+		537F46DE2B281720005AA0E6 /* HeartgoldSoulsilver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartgoldSoulsilver.swift; sourceTree = "<group>"; };
+		537F46DF2B281720005AA0E6 /* RedBlue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedBlue.swift; sourceTree = "<group>"; };
+		537F46E02B281720005AA0E6 /* Yellow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Yellow.swift; sourceTree = "<group>"; };
+		537F46E12B281720005AA0E6 /* Species.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
+		537F46E22B281720005AA0E6 /* GenerationVi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationVi.swift; sourceTree = "<group>"; };
+		537F46E32B281720005AA0E6 /* XY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XY.swift; sourceTree = "<group>"; };
+		537F46E42B281720005AA0E6 /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		537F46E52B281720005AA0E6 /* Other.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Other.swift; sourceTree = "<group>"; };
+		537F46E62B281720005AA0E6 /* DiamondPearl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiamondPearl.swift; sourceTree = "<group>"; };
+		537F46E72B281720005AA0E6 /* DreamWorld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DreamWorld.swift; sourceTree = "<group>"; };
+		537F46E82B281720005AA0E6 /* UltraSunUltraMoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UltraSunUltraMoon.swift; sourceTree = "<group>"; };
+		537F46E92B281720005AA0E6 /* GenerationViii.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationViii.swift; sourceTree = "<group>"; };
+		537F46EA2B281720005AA0E6 /* Stat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
+		537F46EB2B281720005AA0E6 /* MoveLearnMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveLearnMethod.swift; sourceTree = "<group>"; };
+		537F46EC2B281720005AA0E6 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		5382A63B2B15DD8E00C1671B /* PokemonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5382A63E2B15DD8E00C1671B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5382A6402B15DD8E00C1671B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,58 +213,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		537F465E2B28105C005AA0E6 /* PokeModel */ = {
+		537F46BD2B281720005AA0E6 /* PokeModel */ = {
 			isa = PBXGroup;
 			children = (
-				537F46702B281062005AA0E6 /* GenerationIii.swift */,
-				537F46872B28106A005AA0E6 /* Move.swift */,
-				537F46692B28105F005AA0E6 /* Silver.swift */,
-				537F466A2B281060005AA0E6 /* BlackWhite.swift */,
-				537F468C2B28106C005AA0E6 /* Forms.swift */,
-				537F46852B281069005AA0E6 /* Sprites.swift */,
-				537F46682B28105F005AA0E6 /* Versions.swift */,
-				537F46652B28105E005AA0E6 /* VersionGroupDetails.swift */,
-				537F46812B281068005AA0E6 /* Ability.swift */,
-				537F467A2B281066005AA0E6 /* GenerationVii.swift */,
-				537F46792B281065005AA0E6 /* GenerationIv.swift */,
-				537F46862B28106A005AA0E6 /* Type.swift */,
-				537F46662B28105E005AA0E6 /* GameIndices.swift */,
-				537F46712B281063005AA0E6 /* FireredLeafgreen.swift */,
-				537F468D2B28106C005AA0E6 /* Abilities.swift */,
-				537F46772B281065005AA0E6 /* OfficialArtwork.swift */,
-				537F465F2B28105C005AA0E6 /* PokemonData.swift */,
-				537F46632B28105D005AA0E6 /* GenerationV.swift */,
-				537F466F2B281061005AA0E6 /* OmegarubyAlphasapphire.swift */,
-				537F46782B281065005AA0E6 /* Version.swift */,
-				537F46612B28105D005AA0E6 /* VersionGroup.swift */,
-				537F46642B28105E005AA0E6 /* Home.swift */,
-				537F466E2B281061005AA0E6 /* Gold.swift */,
-				537F46842B281069005AA0E6 /* GenerationI.swift */,
-				537F466D2B281060005AA0E6 /* Animated.swift */,
-				537F46732B281064005AA0E6 /* GenerationIi.swift */,
-				537F46752B281064005AA0E6 /* Icons.swift */,
-				537F46882B28106A005AA0E6 /* Crystal.swift */,
-				537F46742B281064005AA0E6 /* Moves.swift */,
-				537F46892B28106B005AA0E6 /* Emerald.swift */,
-				537F46762B281065005AA0E6 /* Platinum.swift */,
-				537F467F2B281068005AA0E6 /* RubySapphire.swift */,
-				537F46722B281063005AA0E6 /* HeartgoldSoulsilver.swift */,
-				537F466B2B281060005AA0E6 /* RedBlue.swift */,
-				537F467B2B281066005AA0E6 /* Yellow.swift */,
-				537F46802B281068005AA0E6 /* Species.swift */,
-				537F466C2B281060005AA0E6 /* GenerationVi.swift */,
-				537F468B2B28106C005AA0E6 /* XY.swift */,
-				537F467C2B281067005AA0E6 /* Stats.swift */,
-				537F468A2B28106B005AA0E6 /* Other.swift */,
-				537F46822B281068005AA0E6 /* DiamondPearl.swift */,
-				537F46672B28105F005AA0E6 /* DreamWorld.swift */,
-				537F467D2B281067005AA0E6 /* UltraSunUltraMoon.swift */,
-				537F46832B281069005AA0E6 /* GenerationViii.swift */,
-				537F46602B28105C005AA0E6 /* Stat.swift */,
-				537F467E2B281067005AA0E6 /* MoveLearnMethod.swift */,
-				537F46622B28105D005AA0E6 /* Types.swift */,
+				537F46BE2B281720005AA0E6 /* GenerationIii.swift */,
+				537F46BF2B281720005AA0E6 /* Move.swift */,
+				537F46C02B281720005AA0E6 /* Silver.swift */,
+				537F46C12B281720005AA0E6 /* BlackWhite.swift */,
+				537F46C22B281720005AA0E6 /* Forms.swift */,
+				537F46C32B281720005AA0E6 /* Sprites.swift */,
+				537F46C42B281720005AA0E6 /* Versions.swift */,
+				537F46C52B281720005AA0E6 /* VersionGroupDetails.swift */,
+				537F46C62B281720005AA0E6 /* Ability.swift */,
+				537F46C72B281720005AA0E6 /* GenerationVii.swift */,
+				537F46C82B281720005AA0E6 /* GenerationIv.swift */,
+				537F46C92B281720005AA0E6 /* Type.swift */,
+				537F46CA2B281720005AA0E6 /* GameIndices.swift */,
+				537F46CB2B281720005AA0E6 /* FireredLeafgreen.swift */,
+				537F46CC2B281720005AA0E6 /* Abilities.swift */,
+				537F46CD2B281720005AA0E6 /* OfficialArtwork.swift */,
+				537F46CE2B281720005AA0E6 /* PokemonData.swift */,
+				537F46CF2B281720005AA0E6 /* GenerationV.swift */,
+				537F46D02B281720005AA0E6 /* OmegarubyAlphasapphire.swift */,
+				537F46D12B281720005AA0E6 /* Version.swift */,
+				537F46D22B281720005AA0E6 /* VersionGroup.swift */,
+				537F46D32B281720005AA0E6 /* Home.swift */,
+				537F46D42B281720005AA0E6 /* Gold.swift */,
+				537F46D52B281720005AA0E6 /* GenerationI.swift */,
+				537F46D62B281720005AA0E6 /* Animated.swift */,
+				537F46D72B281720005AA0E6 /* GenerationIi.swift */,
+				537F46D82B281720005AA0E6 /* Icons.swift */,
+				537F46D92B281720005AA0E6 /* Crystal.swift */,
+				537F46DA2B281720005AA0E6 /* Moves.swift */,
+				537F46DB2B281720005AA0E6 /* Emerald.swift */,
+				537F46DC2B281720005AA0E6 /* Platinum.swift */,
+				537F46DD2B281720005AA0E6 /* RubySapphire.swift */,
+				537F46DE2B281720005AA0E6 /* HeartgoldSoulsilver.swift */,
+				537F46DF2B281720005AA0E6 /* RedBlue.swift */,
+				537F46E02B281720005AA0E6 /* Yellow.swift */,
+				537F46E12B281720005AA0E6 /* Species.swift */,
+				537F46E22B281720005AA0E6 /* GenerationVi.swift */,
+				537F46E32B281720005AA0E6 /* XY.swift */,
+				537F46E42B281720005AA0E6 /* Stats.swift */,
+				537F46EA2B281720005AA0E6 /* Stat.swift */,
+				537F46E52B281720005AA0E6 /* Other.swift */,
+				537F46E62B281720005AA0E6 /* DiamondPearl.swift */,
+				537F46E72B281720005AA0E6 /* DreamWorld.swift */,
+				537F46E82B281720005AA0E6 /* UltraSunUltraMoon.swift */,
+				537F46E92B281720005AA0E6 /* GenerationViii.swift */,
+				537F46EB2B281720005AA0E6 /* MoveLearnMethod.swift */,
+				537F46EC2B281720005AA0E6 /* Types.swift */,
 			);
-			path = PokeModel;
+			name = PokeModel;
+			path = ../../../../../Downloads/PokeModel;
 			sourceTree = "<group>";
 		};
 		5382A6322B15DD8E00C1671B = {
@@ -326,7 +327,7 @@
 		5382A6862B1B5D9900C1671B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				537F465E2B28105C005AA0E6 /* PokeModel */,
+				537F46BD2B281720005AA0E6 /* PokeModel */,
 				5382A6962B1DD8FC00C1671B /* AppUser.swift */,
 				538ED78C2B21BB2500CBDC04 /* PokeSpeciesModel.swift */,
 				538ED78A2B218A7C00CBDC04 /* URL+Extension.swift */,
@@ -636,65 +637,65 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				537F46EE2B281721005AA0E6 /* Move.swift in Sources */,
+				537F47132B281721005AA0E6 /* Stats.swift in Sources */,
 				5382A6972B1DD8FC00C1671B /* AppUser.swift in Sources */,
+				537F47052B281721005AA0E6 /* Animated.swift in Sources */,
 				5382A6432B15DD8E00C1671B /* MainView.swift in Sources */,
-				537F46902B28106C005AA0E6 /* Stat.swift in Sources */,
-				537F46B02B28106D005AA0E6 /* GenerationV.swift in Sources */,
-				537F46A02B28106C005AA0E6 /* Abilities.swift in Sources */,
-				537F46AF2B28106D005AA0E6 /* Other.swift in Sources */,
-				537F46972B28106C005AA0E6 /* VersionGroup.swift in Sources */,
-				537F46AB2B28106D005AA0E6 /* GenerationViii.swift in Sources */,
-				537F46B12B28106D005AA0E6 /* GenerationIv.swift in Sources */,
-				537F46952B28106C005AA0E6 /* Sprites.swift in Sources */,
+				537F47102B281721005AA0E6 /* Species.swift in Sources */,
 				53689F5A2B2073C700748595 /* PokeService.swift in Sources */,
-				537F46A22B28106C005AA0E6 /* Versions.swift in Sources */,
-				537F46A32B28106C005AA0E6 /* Stats.swift in Sources */,
-				537F46B32B28106D005AA0E6 /* Icons.swift in Sources */,
+				537F471B2B281721005AA0E6 /* Types.swift in Sources */,
 				538ED78B2B218A7C00CBDC04 /* URL+Extension.swift in Sources */,
-				537F46A52B28106C005AA0E6 /* Types.swift in Sources */,
-				537F46B72B28106D005AA0E6 /* GenerationVi.swift in Sources */,
+				537F46F42B281721005AA0E6 /* VersionGroupDetails.swift in Sources */,
+				537F470B2B281721005AA0E6 /* Platinum.swift in Sources */,
+				537F470F2B281721005AA0E6 /* Yellow.swift in Sources */,
+				537F47022B281721005AA0E6 /* Home.swift in Sources */,
+				537F47092B281721005AA0E6 /* Moves.swift in Sources */,
+				537F46FE2B281721005AA0E6 /* GenerationV.swift in Sources */,
+				537F470C2B281721005AA0E6 /* RubySapphire.swift in Sources */,
+				537F47152B281721005AA0E6 /* DiamondPearl.swift in Sources */,
+				537F47162B281721005AA0E6 /* DreamWorld.swift in Sources */,
+				537F46F12B281721005AA0E6 /* Forms.swift in Sources */,
+				537F47012B281721005AA0E6 /* VersionGroup.swift in Sources */,
 				5382A6992B1DD96E00C1671B /* AuthenticationViewModel.swift in Sources */,
-				537F469B2B28106C005AA0E6 /* Yellow.swift in Sources */,
-				537F46AA2B28106D005AA0E6 /* MoveLearnMethod.swift in Sources */,
-				537F46AE2B28106D005AA0E6 /* GenerationI.swift in Sources */,
-				537F46942B28106C005AA0E6 /* GenerationIi.swift in Sources */,
-				537F46922B28106C005AA0E6 /* GenerationIii.swift in Sources */,
-				537F469D2B28106C005AA0E6 /* Silver.swift in Sources */,
+				537F46FD2B281721005AA0E6 /* PokemonData.swift in Sources */,
+				537F46F92B281721005AA0E6 /* GameIndices.swift in Sources */,
+				537F46FA2B281721005AA0E6 /* FireredLeafgreen.swift in Sources */,
+				537F470D2B281721005AA0E6 /* HeartgoldSoulsilver.swift in Sources */,
+				537F47192B281721005AA0E6 /* Stat.swift in Sources */,
+				537F46F62B281721005AA0E6 /* GenerationVii.swift in Sources */,
+				537F46FC2B281721005AA0E6 /* OfficialArtwork.swift in Sources */,
+				537F47002B281721005AA0E6 /* Version.swift in Sources */,
+				537F47082B281721005AA0E6 /* Crystal.swift in Sources */,
+				537F47182B281721005AA0E6 /* GenerationViii.swift in Sources */,
+				537F470E2B281721005AA0E6 /* RedBlue.swift in Sources */,
+				537F47032B281721005AA0E6 /* Gold.swift in Sources */,
 				5382A63F2B15DD8E00C1671B /* AppDelegate.swift in Sources */,
-				537F46B22B28106D005AA0E6 /* RedBlue.swift in Sources */,
-				537F469E2B28106C005AA0E6 /* GameIndices.swift in Sources */,
-				537F469A2B28106C005AA0E6 /* Moves.swift in Sources */,
-				537F46AD2B28106D005AA0E6 /* Move.swift in Sources */,
-				537F46992B28106C005AA0E6 /* Type.swift in Sources */,
-				537F46B52B28106D005AA0E6 /* Species.swift in Sources */,
+				537F46ED2B281721005AA0E6 /* GenerationIii.swift in Sources */,
+				537F46F52B281721005AA0E6 /* Ability.swift in Sources */,
 				538ED7892B21824300CBDC04 /* PokemonViewModel.swift in Sources */,
-				537F46AC2B28106D005AA0E6 /* RubySapphire.swift in Sources */,
-				537F469C2B28106C005AA0E6 /* Platinum.swift in Sources */,
+				537F46F02B281721005AA0E6 /* BlackWhite.swift in Sources */,
+				537F46F32B281721005AA0E6 /* Versions.swift in Sources */,
 				5382A69B2B1DDC8900C1671B /* GoogleAuthentication.swift in Sources */,
+				537F470A2B281721005AA0E6 /* Emerald.swift in Sources */,
+				537F471A2B281721005AA0E6 /* MoveLearnMethod.swift in Sources */,
+				537F47142B281721005AA0E6 /* Other.swift in Sources */,
+				537F47072B281721005AA0E6 /* Icons.swift in Sources */,
+				537F47042B281721005AA0E6 /* GenerationI.swift in Sources */,
+				537F47172B281721005AA0E6 /* UltraSunUltraMoon.swift in Sources */,
+				537F47112B281721005AA0E6 /* GenerationVi.swift in Sources */,
+				537F46F22B281721005AA0E6 /* Sprites.swift in Sources */,
 				538ED78D2B21BB2500CBDC04 /* PokeSpeciesModel.swift in Sources */,
-				537F46A62B28106C005AA0E6 /* GenerationVii.swift in Sources */,
-				537F468F2B28106C005AA0E6 /* UltraSunUltraMoon.swift in Sources */,
+				537F46F72B281721005AA0E6 /* GenerationIv.swift in Sources */,
+				537F46EF2B281721005AA0E6 /* Silver.swift in Sources */,
 				537F44212B26ECF1005AA0E6 /* BattleView.swift in Sources */,
-				537F46B42B28106D005AA0E6 /* XY.swift in Sources */,
-				537F46A82B28106C005AA0E6 /* Forms.swift in Sources */,
-				537F46A72B28106C005AA0E6 /* DreamWorld.swift in Sources */,
-				537F46B92B28106D005AA0E6 /* Gold.swift in Sources */,
-				537F46912B28106C005AA0E6 /* Version.swift in Sources */,
-				537F46B62B28106D005AA0E6 /* HeartgoldSoulsilver.swift in Sources */,
-				537F46A12B28106C005AA0E6 /* Animated.swift in Sources */,
-				537F469F2B28106C005AA0E6 /* OmegarubyAlphasapphire.swift in Sources */,
-				537F46B82B28106D005AA0E6 /* PokemonData.swift in Sources */,
-				537F46962B28106C005AA0E6 /* FireredLeafgreen.swift in Sources */,
-				537F46932B28106C005AA0E6 /* VersionGroupDetails.swift in Sources */,
 				5382A6722B17400B00C1671B /* LoginView.swift in Sources */,
-				537F46BA2B28106D005AA0E6 /* OfficialArtwork.swift in Sources */,
-				537F46BC2B28106D005AA0E6 /* Crystal.swift in Sources */,
-				537F46BB2B28106D005AA0E6 /* Home.swift in Sources */,
-				537F46A42B28106C005AA0E6 /* Emerald.swift in Sources */,
-				537F46A92B28106D005AA0E6 /* BlackWhite.swift in Sources */,
-				537F46982B28106C005AA0E6 /* Ability.swift in Sources */,
-				537F468E2B28106C005AA0E6 /* DiamondPearl.swift in Sources */,
 				5382A6412B15DD8E00C1671B /* SceneDelegate.swift in Sources */,
+				537F46F82B281721005AA0E6 /* Type.swift in Sources */,
+				537F47062B281721005AA0E6 /* GenerationIi.swift in Sources */,
+				537F46FB2B281721005AA0E6 /* Abilities.swift in Sources */,
+				537F47122B281721005AA0E6 /* XY.swift in Sources */,
+				537F46FF2B281721005AA0E6 /* OmegarubyAlphasapphire.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,15 +15,15 @@ class MainView: UIViewController {
     
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
-    var mainPokemonNumber = 120
+    var mainPokemonNumber  = 4
     private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         pokeService = PokeService()
         pokemonViewModel = PokemonViewModel(pokeService!)
-        pokemonViewModel?.fetchMainPokemon(id: self.mainPokemonNumber)
-        pokemonViewModel?.fetchMainPokemonName(id: self.mainPokemonNumber)
+        pokemonViewModel?.fetchPokemon(id: self.mainPokemonNumber)
+        pokemonViewModel?.fetchPokemonName(id: self.mainPokemonNumber)
         MoveMainPokemon()
         PokemonName()
         PokemonImage()
@@ -104,6 +104,7 @@ class MainView: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let battleVC = storyboard.instantiateViewController(withIdentifier: "BattleView") as! BattleView
         battleVC.modalPresentationStyle = .fullScreen
+        battleVC.partnerPokemonNumber = mainPokemonNumber
         present(battleVC, animated: true)
     }
 }

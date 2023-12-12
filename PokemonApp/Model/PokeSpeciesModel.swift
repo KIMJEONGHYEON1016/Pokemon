@@ -15,3 +15,17 @@ struct PokeSpecies: Codable {
 struct Pokemonname: Codable {
     let name: String?
 }
+
+
+struct Enemy {
+    var hp: Int?
+    var defense: Int?
+    var attack: Int?
+}
+
+
+struct Partner {
+    var hp: Int?
+    var defense: Int?
+    var attack: Int?
+}
