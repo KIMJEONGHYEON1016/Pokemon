@@ -12,7 +12,7 @@ class PokemonViewModel {
     private var Pokemon: PokeService
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var PokemonData: PokemonSelected?
+    @Published var PokemonData: PokemonData?
     @Published var PokemonSpecies: PokeSpecies?
 
     init(_ Pokemon: PokeService) {

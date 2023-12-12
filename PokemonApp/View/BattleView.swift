@@ -19,7 +19,7 @@ class BattleView: UIViewController {
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
     private var cancellables = Set<AnyCancellable>()
-    var id = 100
+    var id: Int = Int.random(in: 1...151)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +27,16 @@ class BattleView: UIViewController {
         pokemonViewModel = PokemonViewModel(pokeService!)
         pokemonViewModel?.fetchMainPokemon(id: self.id)       //id에 관한 메서드 변경 예정
         PartnerPokemonImage()
+        id = Int.random(in: 1...151)            //랜덤 id
     }
     
     func PartnerPokemonImage() {
         pokemonViewModel?.$PokemonData
             .receive(on: DispatchQueue.main)
             .sink { data in
-                guard let imageUrlString = data?.sprites?.versions?.generation_v.black_white,
+                guard let imageUrlString = data?.sprites?.versions?.generationV?.blackWhite?.animated?.backDefault,
                       let imageUrl = URL(string: imageUrlString) else { return }
-                print(imageUrlString)
+                print(imageUrl)
                 
                 URLSession.shared.dataTask(with: imageUrl) { data, response, error in
                     if let error = error {

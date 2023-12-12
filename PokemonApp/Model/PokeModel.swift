@@ -54,5 +54,5 @@ struct PokemonBlackWhite: Codable {
 }
 struct PokemonAnimated: Codable {
     var back_default: String
- 
+   
 }

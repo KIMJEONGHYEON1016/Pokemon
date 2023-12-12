@@ -174,10 +174,10 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QuW-Kg-mzW" customClass="FLAnimatedImageView">
-                                <rect key="frame" x="-77" y="418" width="400" height="400"/>
+                                <rect key="frame" x="16" y="578" width="248" height="240"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="400" id="1un-Cq-NYU"/>
-                                    <constraint firstAttribute="height" constant="400" id="2Vs-yl-UJv"/>
+                                    <constraint firstAttribute="width" constant="248" id="1un-Cq-NYU"/>
+                                    <constraint firstAttribute="height" constant="240" id="2Vs-yl-UJv"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -187,7 +187,7 @@
                             <constraint firstItem="3uI-Sq-vUj" firstAttribute="trailing" secondItem="l7c-H7-nEc" secondAttribute="trailing" constant="16" id="EYU-fP-ets"/>
                             <constraint firstItem="l7c-H7-nEc" firstAttribute="top" secondItem="3uI-Sq-vUj" secondAttribute="top" constant="88" id="GRx-dT-dSi"/>
                             <constraint firstItem="3uI-Sq-vUj" firstAttribute="bottom" secondItem="QuW-Kg-mzW" secondAttribute="bottom" id="U3I-ZW-W6c"/>
-                            <constraint firstItem="QuW-Kg-mzW" firstAttribute="leading" secondItem="3uI-Sq-vUj" secondAttribute="leading" constant="-77" id="vTm-HJ-lIg"/>
+                            <constraint firstItem="QuW-Kg-mzW" firstAttribute="leading" secondItem="3uI-Sq-vUj" secondAttribute="leading" constant="16" id="vTm-HJ-lIg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R0U-UX-bEH"/>

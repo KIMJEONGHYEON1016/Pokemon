@@ -15,20 +15,22 @@ class MainView: UIViewController {
     
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
-    var id = 100
+    var mainPokemonNumber = 120
     private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         pokeService = PokeService()
         pokemonViewModel = PokemonViewModel(pokeService!)
-        pokemonViewModel?.fetchMainPokemon(id: self.id)       //id에 관한 메서드 변경 예정
-        pokemonViewModel?.fetchMainPokemonName(id: self.id)
+        pokemonViewModel?.fetchMainPokemon(id: self.mainPokemonNumber)
+        pokemonViewModel?.fetchMainPokemonName(id: self.mainPokemonNumber)
         MoveMainPokemon()
         PokemonName()
         PokemonImage()
         }
         
+    
+    
     
     //관찰 후 메인 포켓몬 이름 변경
     func PokemonName() {
@@ -49,7 +51,7 @@ class MainView: UIViewController {
         pokemonViewModel?.$PokemonData
                     .receive(on: DispatchQueue.main)
                     .sink { data in
-                        guard let imageUrlString = data?.sprites?.other?.home?.front_default,
+                        guard let imageUrlString = data?.sprites?.other?.home?.frontDefault,
                               let imageUrl = URL(string: imageUrlString) else { return }
                         
                         print(imageUrl)
