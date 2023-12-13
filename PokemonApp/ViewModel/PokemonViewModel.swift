@@ -26,12 +26,12 @@ class PokemonViewModel {
     
     
     // id는 포켓몬 고유 번호
+    //파트너 포켓몬 이미지
     func fetchPokemon(id: Int) {
         let url = URL.urlWith(id: id)
         guard let url = url else { return }
 
         Pokemon.getData(url: url)
-            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
                     print("Error during fetchMainPokemon: \(error)")
@@ -43,12 +43,12 @@ class PokemonViewModel {
     }
    
     
+    //야생 포켓몬 이미지
     func fetchWildPokemon(id: Int) {
         let url = URL.urlWith(id: id)
         guard let url = url else { return }
 
         Pokemon.getData(url: url)
-            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
                     print("Error during fetchMainPokemon: \(error)")
@@ -59,12 +59,12 @@ class PokemonViewModel {
             .store(in: &cancellables)
     }
     
+    //포켓몬 한글 이름
     func fetchPokemonName(id: Int) {
         let url = URL.urlWithsepc(id: id)
         guard let url = url else { return }
 
         Pokemon.getData(url: url)
-            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
                     print("Error during fetchMainPokemonName: \(error)")
@@ -76,12 +76,12 @@ class PokemonViewModel {
     }
     
     
+    //파트너 포켓몬 스텟
     func fetchPartnerPokemonPower(id: Int) {
         let url = URL.urlWith(id: id)
         guard let url = url else { return }
         
         Pokemon.getData(url: url)
-            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
                     print("Error during fetchMainPokemon: \(error)")
@@ -92,12 +92,13 @@ class PokemonViewModel {
             .store(in: &cancellables)
     }
     
+    
+    //야생 포켓몬 스텟
     func fetchWildPokemonpower(id: Int) {
         let url = URL.urlWith(id: id)
         guard let url = url else { return }
 
         Pokemon.getData(url: url)
-            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
                     print("Error during fetchMainPokemon: \(error)")

@@ -18,14 +18,14 @@ struct Pokemonname: Codable {
 
 
 struct Enemy {
-    var hp: Int?
-    var defense: Int?
-    var attack: Int?
+    var hp: Int
+    var defense: Int
+    var attack: Int
 }
 
 
 struct Partner {
-    var hp: Int?
-    var defense: Int?
-    var attack: Int?
+    var hp: Int
+    var defense: Int
+    var attack: Int
 }
