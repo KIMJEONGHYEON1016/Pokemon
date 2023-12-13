@@ -107,4 +107,12 @@ class MainView: UIViewController {
         battleVC.partnerPokemonNumber = mainPokemonNumber
         present(battleVC, animated: true)
     }
+    
+    @IBAction func PokemonCollection(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let collectionVC = storyboard.instantiateViewController(withIdentifier: "PokemonCollectionView") as! PokemonCollectionView
+        collectionVC.modalPresentationStyle = .fullScreen
+        present(collectionVC, animated: true)
+    }
+    
 }
