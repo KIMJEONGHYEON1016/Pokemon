@@ -18,6 +18,7 @@ class BattleView: UIViewController {
     @IBOutlet weak var BattleStart: UIButton!
     @IBOutlet weak var MainMenu: UIButton!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var BattleTime: UILabel!
     
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
@@ -34,7 +35,11 @@ class BattleView: UIViewController {
     var partner: Partner?
     var timer: Timer?
     var winEnergy: Int = 0
-    var secondsPassed = 0
+    var secondsPassed = 0{
+        didSet {
+            BattleTime.text = String(20 - secondsPassed)
+        }
+    }
     let targetSeconds = 20
     
     override func viewDidLoad() {
@@ -70,6 +75,7 @@ class BattleView: UIViewController {
         BattleStart.isHidden = true
     }
     
+    //전투 세팅
     func Battle() {
         if let partnerHP = partner?.hp, let enemyHP = enemy?.hp {
             self.energy = (partnerHP + enemyHP) * 10
@@ -132,6 +138,7 @@ class BattleView: UIViewController {
         }
     }
     
+    //패배화면
     func showLossScreen() {
         let lossView = UIView(frame: UIScreen.main.bounds)
         lossView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
@@ -159,11 +166,12 @@ class BattleView: UIViewController {
     }
 
 
-    
+    //타이머 시작
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
+    //타이머 관리
     @objc func updateTimer() {
         guard let timer = timer else {
             return // 타이머가 nil이면 함수를 종료
@@ -188,7 +196,7 @@ class BattleView: UIViewController {
 
 
 
-
+    //프로그래스바 세팅
     func updateProgressBar() {
         if energy != 0 && winEnergy != 0 {
             let progress = Float(energy) / Float(winEnergy)
