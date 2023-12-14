@@ -7,6 +7,7 @@ target 'PokemonApp' do
 
   # Pods for PokemonApp
 pod 'FLAnimatedImage'
+pod 'SDWebImage'
 
   target 'PokemonAppTests' do
     inherit! :search_paths

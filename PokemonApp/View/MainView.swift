@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import SDWebImage
 
 class MainView: UIViewController {
     
@@ -22,12 +23,15 @@ class MainView: UIViewController {
         super.viewDidLoad()
         pokeService = PokeService()
         pokemonViewModel = PokemonViewModel(pokeService!)
+        pokemonViewModel?.fetchAllPokemonNames()
+        pokemonViewModel?.fetchAllPokemonTypes()
         pokemonViewModel?.fetchPokemon(id: self.mainPokemonNumber)
         pokemonViewModel?.fetchPokemonName(id: self.mainPokemonNumber)
         MoveMainPokemon()
         PokemonName()
         PokemonImage()
         }
+    
         
     
     
@@ -47,31 +51,15 @@ class MainView: UIViewController {
 
     
     //관찰 후 메인 포켓몬 이미지 변경
-    func PokemonImage() {
-        pokemonViewModel?.$PokemonData
-                    .receive(on: DispatchQueue.main)
-                    .sink { data in
-                        guard let imageUrlString = data?.sprites?.other?.home?.frontDefault,
-                              let imageUrl = URL(string: imageUrlString) else { return }
-                        
-                        print(imageUrl)
-                        URLSession.shared.dataTask(with: imageUrl) { data, response, error in
-                            
-                            if let error = error {
-                                print("Error fetching image data: \(error)")
-                                return
-                            }
-                            
-                            guard let imageData = data else {
-                                print("No image data received")
-                                return
-                            }
-                            DispatchQueue.main.async {
-                                self.MainPokemon.image = UIImage(data: imageData)
-                                }
-                            }.resume()
-                    }.store(in: &cancellables)
-    }
+        func PokemonImage() {
+            pokemonViewModel?.$PokemonData
+                        .receive(on: DispatchQueue.main)
+                        .sink { data in
+                            guard let imageUrlString = data?.sprites?.other?.home?.frontDefault,
+                                  let imageUrl = URL(string: imageUrlString) else { return }
+                            self.MainPokemon.sd_setImage(with: imageUrl, completed: nil)
+                        }.store(in: &cancellables)
+        }
 
 
    

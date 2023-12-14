@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Combine
+import SDWebImage
 
 class PokemonCollectionView: UIViewController {
     
@@ -16,7 +17,8 @@ class PokemonCollectionView: UIViewController {
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
     private var cancellables = Set<AnyCancellable>()
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pokemonCollection.dataSource = self
@@ -25,31 +27,7 @@ class PokemonCollectionView: UIViewController {
         pokemonViewModel = PokemonViewModel(pokeService!)
     }
     
-    func PokemonImage(image: UIImageView) {
-        pokemonViewModel?.$PokemonData
-                    .receive(on: DispatchQueue.main)
-                    .sink { data in
-                        guard let imageUrlString = data?.sprites?.other?.officialArtwork?.frontDefault,
-                              let imageUrl = URL(string: imageUrlString) else { return }
-                        
-                        print(imageUrl)
-                        URLSession.shared.dataTask(with: imageUrl) { data, response, error in
-                            
-                            if let error = error {
-                                print("Error fetching image data: \(error)")
-                                return
-                            }
-                            
-                            guard let imageData = data else {
-                                print("No image data received")
-                                return
-                            }
-                            DispatchQueue.main.async {
-                                image.image = UIImage(data: imageData)
-                                }
-                            }.resume()
-                    }.store(in: &cancellables)
-    }
+   
 
 }
 
@@ -57,7 +35,7 @@ class PokemonCollectionView: UIViewController {
 //데이터 소스 설정
 extension PokemonCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 151
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -66,10 +44,18 @@ extension PokemonCollectionView: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PokemonCollectionViewCell
 
-        for i in 1...10 {
-            pokemonViewModel?.fetchPokemon(id: i)
-            PokemonImage(image: cell.PokemonImage)
-        }
+
+        // 각 셀에 대해 이미지 설정
+        let imageUrlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(indexPath.row + 1).png"
+                guard let imageUrl = URL(string: imageUrlString) else {
+                    return cell
+                }
+
+                // SDWebImage를 사용하여 이미지 설정
+        cell.PokemonImage.sd_setImage(with: imageUrl, completed: nil)
+        
+        cell.PokemonName.text = PokemonViewModel.allPokemonNames[indexPath.row]
+        cell.PokemonImage.layer.cornerRadius = 10
         return cell
     }
 }
@@ -77,16 +63,7 @@ extension PokemonCollectionView: UICollectionViewDataSource {
 //액션과 관련됨
 extension PokemonCollectionView: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        var numberOfItemsLoaded = 20
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        let height = scrollView.frame.size.height
-
-        if offsetY > contentHeight - height {
-            // 스크롤이 끝에 도달했을 때 추가 아이템 로드
-            numberOfItemsLoaded += 20 // 20개씩 추가로 로드
-            pokemonCollection.reloadData() // 셀 재로드
-        }
+    
     }
 }
 

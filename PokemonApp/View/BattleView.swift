@@ -211,7 +211,7 @@ class BattleView: UIViewController {
     
     //야생 포켓몬 능력치
     func EnemyPower(){
-        pokemonViewModel?.$WildPokemoPower
+        pokemonViewModel?.$WildPokemonPower
             .sink { data in
                 if let hp = data?.stats?.first?.baseStat,
                    let defense = data?.stats?[1].baseStat,

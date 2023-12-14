@@ -220,6 +220,7 @@
 		537F46BD2B281720005AA0E6 /* PokeModel */ = {
 			isa = PBXGroup;
 			children = (
+				537F46CE2B281720005AA0E6 /* PokemonData.swift */,
 				537F46BE2B281720005AA0E6 /* GenerationIii.swift */,
 				537F46BF2B281720005AA0E6 /* Move.swift */,
 				537F46C02B281720005AA0E6 /* Silver.swift */,
@@ -231,12 +232,12 @@
 				537F46C62B281720005AA0E6 /* Ability.swift */,
 				537F46C72B281720005AA0E6 /* GenerationVii.swift */,
 				537F46C82B281720005AA0E6 /* GenerationIv.swift */,
-				537F46C92B281720005AA0E6 /* Type.swift */,
 				537F46CA2B281720005AA0E6 /* GameIndices.swift */,
+				537F46C92B281720005AA0E6 /* Type.swift */,
+				537F46EC2B281720005AA0E6 /* Types.swift */,
 				537F46CB2B281720005AA0E6 /* FireredLeafgreen.swift */,
 				537F46CC2B281720005AA0E6 /* Abilities.swift */,
 				537F46CD2B281720005AA0E6 /* OfficialArtwork.swift */,
-				537F46CE2B281720005AA0E6 /* PokemonData.swift */,
 				537F46CF2B281720005AA0E6 /* GenerationV.swift */,
 				537F46D02B281720005AA0E6 /* OmegarubyAlphasapphire.swift */,
 				537F46D12B281720005AA0E6 /* Version.swift */,
@@ -266,7 +267,6 @@
 				537F46E82B281720005AA0E6 /* UltraSunUltraMoon.swift */,
 				537F46E92B281720005AA0E6 /* GenerationViii.swift */,
 				537F46EB2B281720005AA0E6 /* MoveLearnMethod.swift */,
-				537F46EC2B281720005AA0E6 /* Types.swift */,
 			);
 			name = PokeModel;
 			path = ../../../../../Downloads/PokeModel;

@@ -16,5 +16,11 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var PokemonType1: UILabel!
     @IBOutlet weak var PokemonType2: UILabel!
     var cancellables = Set<AnyCancellable>()
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
 
+            // 셀을 초기화 해주는 코드.
+    }
+    
 }
