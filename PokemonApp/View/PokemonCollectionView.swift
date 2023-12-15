@@ -13,6 +13,7 @@ import SDWebImage
 class PokemonCollectionView: UIViewController {
     
     @IBOutlet weak var pokemonCollection: UICollectionView!
+    @IBOutlet weak var dismissBtn: UIButton!
     
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
@@ -25,10 +26,22 @@ class PokemonCollectionView: UIViewController {
         pokemonCollection.delegate = self
         pokeService = PokeService()
         pokemonViewModel = PokemonViewModel(pokeService!)
+        DismissButton()
     }
     
+    func DismissButton (){
+        dismissBtn.layer.cornerRadius = dismissBtn.frame.height / 2 // 버튼을 동그랗게 만듭니다.
+        dismissBtn.layer.borderWidth = 1.0 // 테두리 두께 설정
+        dismissBtn.layer.borderColor = UIColor.systemBlue.cgColor // 시스템 블루 색상으로 테두리 색 설정
+        dismissBtn.clipsToBounds = true // 버튼의 경계를 벗어나는 부분은 잘라냅니다.
+    }
    
-
+   
+    @IBAction func dismissBtn(_ sender: Any) {
+        self.dismiss(animated: true)
+        
+    }
+    
 }
 
 

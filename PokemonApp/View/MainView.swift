@@ -13,10 +13,13 @@ class MainView: UIViewController {
     
     @IBOutlet weak var MainPokemonName: UILabel!
     @IBOutlet weak var MainPokemon: UIImageView!
+    @IBOutlet weak var battlePoint: UILabel!
     
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
     var mainPokemonNumber  = 4
+    var partner: Partner?
+    var battlepoint: Int = 0
     private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
@@ -27,12 +30,13 @@ class MainView: UIViewController {
         pokemonViewModel?.fetchAllPokemonTypes()
         pokemonViewModel?.fetchPokemon(id: self.mainPokemonNumber)
         pokemonViewModel?.fetchPokemonName(id: self.mainPokemonNumber)
+        self.pokemonViewModel?.fetchPartnerPokemonPower(id: self.mainPokemonNumber)
+        self.PartnerPokemonPower()
         MoveMainPokemon()
         PokemonName()
         PokemonImage()
         }
     
-        
     
     
     
@@ -61,8 +65,22 @@ class MainView: UIViewController {
                         }.store(in: &cancellables)
         }
 
-
-   
+    //파트너 포켓몬 능력치
+    func PartnerPokemonPower(){
+        pokemonViewModel?.$PartnerPokemonPower
+            .sink { data in
+                if let hp = data?.stats?.first?.baseStat,
+                   let defense = data?.stats?[1].baseStat,
+                   let attack = data?.stats?[2].baseStat {
+                    self.partner = Partner(hp: hp, defense: defense, attack: attack)
+                    self.battlepoint = self.partner!.attack + (self.partner!.defense + self.partner!.hp)/7
+                    DispatchQueue.main.async{
+                        self.battlePoint.text = String(self.battlepoint * 10)
+                    }
+                }
+            }
+            .store(in: &cancellables)
+    }
     
     //포켓몬 Move
     func MoveMainPokemon(){
@@ -93,6 +111,7 @@ class MainView: UIViewController {
         let battleVC = storyboard.instantiateViewController(withIdentifier: "BattleView") as! BattleView
         battleVC.modalPresentationStyle = .fullScreen
         battleVC.partnerPokemonNumber = mainPokemonNumber
+        battleVC.partnerBP = battlePoint.text!
         present(battleVC, animated: true)
     }
     

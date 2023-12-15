@@ -19,6 +19,8 @@ class BattleView: UIViewController {
     @IBOutlet weak var MainMenu: UIButton!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var BattleTime: UILabel!
+    @IBOutlet weak var EnemyBP: UILabel!
+    @IBOutlet weak var PartnerBP: UILabel!
     
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
@@ -34,6 +36,8 @@ class BattleView: UIViewController {
     var enemy: Enemy?
     var partner: Partner?
     var timer: Timer?
+    var battlepoint: Int = 0
+    var partnerBP: String = ""
     var winEnergy: Int = 0
     var secondsPassed = 0{
         didSet {
@@ -67,12 +71,14 @@ class BattleView: UIViewController {
         self.pokemonViewModel?.fetchWildPokemonpower(id: self.id)
         self.EnemyPower()
         
-
+        self.PartnerBP.text = self.partnerBP
     }
     
     @IBAction func BattleStart(_ sender: Any) {
         Battle()
         BattleStart.isHidden = true
+        PartnerBP.isHidden = true
+        EnemyBP.isHidden = true
     }
     
     //전투 세팅
@@ -97,7 +103,7 @@ class BattleView: UIViewController {
     
     //공격
     @objc func handleTap(_ gesture: UITapGestureRecognizer) {
-        if (partner?.attack)!-(enemy?.defense)!/7 < 1 {
+        if (partner?.attack)!-((enemy?.defense)! + (enemy?.hp)!)/7 < 1 {
             energy += 1
         } else {
             energy += (partner?.attack)!-((enemy?.defense)! + (enemy?.hp)!)/7
@@ -119,9 +125,9 @@ class BattleView: UIViewController {
     
    // 적 공격
     func startEnergyDecrement() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] timer in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { [weak self] timer in
             // 0.3초마다 energy를 감소시킴
-            if (self!.enemy!.attack) - (self!.partner!.defense)/7 < 1 {
+            if (self!.enemy!.attack) - ((self!.partner!.defense) + (self!.partner!.hp))/7 < 1 {
                 self!.energy -= 1
             }
             self?.energy -= self!.enemy!.attack - ((self!.partner!.defense) + (self!.partner!.hp))/7
@@ -217,6 +223,10 @@ class BattleView: UIViewController {
                    let defense = data?.stats?[1].baseStat,
                    let attack = data?.stats?[2].baseStat {
                     self.enemy = Enemy(hp: hp, defense: defense, attack: attack)
+                    self.battlepoint = self.enemy!.attack + (self.enemy!.defense + self.enemy!.hp)/7
+                    DispatchQueue.main.async{
+                        self.EnemyBP.text = String(self.battlepoint * 10)
+                    }
                     print(self.enemy ?? "aa")
                 }
             }
