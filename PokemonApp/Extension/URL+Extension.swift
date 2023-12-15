@@ -5,7 +5,7 @@
 //  Created by 김정현 on 2023/12/07.
 //
 
-import Foundation
+import UIKit
 
 extension URL {
     static func urlWith(id: Int) -> URL? {
@@ -20,3 +20,5 @@ extension URL {
     }
     
 }
+
+

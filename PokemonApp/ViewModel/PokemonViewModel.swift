@@ -108,7 +108,7 @@ class PokemonViewModel {
                 return
             }
             
-            let url = URL.urlWithsepc(id: index)
+            let url = URL.urlWith(id: index)
             guard let url = url else { return }
 
             Pokemon.getData(url: url)
