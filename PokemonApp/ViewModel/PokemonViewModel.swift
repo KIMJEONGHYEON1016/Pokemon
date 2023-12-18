@@ -17,8 +17,8 @@ class PokemonViewModel {
     @Published var WildPokemonData: PokemonData?
     @Published var PartnerPokemonPower: PokemonData?
     @Published var WildPokemonPower: PokemonData?
-    static var allPokemonNames: [String] = []
-    static var allPokemonTypes: [[String]] = []
+    @Published var allPokemonNames: [String] = []
+    @Published var allPokemonTypes: [[String]] = []
 
     
     init(_ Pokemon: PokeService) {
@@ -77,9 +77,11 @@ class PokemonViewModel {
             .store(in: &cancellables)
     }
     
+    //포켓몬도감 이름
     func fetchAllPokemonNames(index: Int = 1) {
         guard index <= 151 else {
             // 모든 요청이 완료된 경우
+            UserDefaults.standard.set(self.allPokemonNames, forKey: "allPokemonNames")
             return
         }
         
@@ -93,7 +95,7 @@ class PokemonViewModel {
                 }
             }, receiveValue: { (data: PokeSpecies?) in
                 if let name = data?.names?[2].name {
-                    PokemonViewModel.allPokemonNames.append(name)
+                    self.allPokemonNames.append(name)
                 }
                 
                 // 다음 포켓몬 데이터 요청을 수행
@@ -102,9 +104,11 @@ class PokemonViewModel {
             .store(in: &cancellables)
     }
 
+    //포켓몬 도감 타입
     func fetchAllPokemonTypes(index: Int = 1) {
-            guard index <= 151 else {
-                print(PokemonViewModel.allPokemonTypes)
+            guard index <= 151 else {      
+                let koreanType = convertToKorean(types: allPokemonTypes)
+                UserDefaults.standard.set(koreanType, forKey: "allPokemonTypes")
                 return
             }
             
@@ -119,10 +123,10 @@ class PokemonViewModel {
                 }, receiveValue: { (data: PokemonData?) in
                     if let types = data?.types {
                         let pokemonTypes = types.compactMap { $0.type?.name }
-                        PokemonViewModel.allPokemonTypes.append(pokemonTypes)
+                        self.allPokemonTypes.append(pokemonTypes)
                     } else {
                         // 해당 포켓몬에 타입 데이터가 없는 경우에 대한 처리
-                        PokemonViewModel.allPokemonTypes.append([])
+                        self.allPokemonTypes.append([])
                     }
                     
                     // 다음 포켓몬 데이터 요청을 수행
@@ -130,7 +134,15 @@ class PokemonViewModel {
                 })
                 .store(in: &cancellables)
         }
-
+    //타입 한글로 변환
+    func convertToKorean(types: [[String]]) -> [[String]] {
+        return types.map { innerArray in
+            innerArray.map { type in
+                return typeMapping[type] ?? type // 매핑된 값이 없는 경우 원래 값 그대로 반환
+            }
+        }
+    }
+    
     //파트너 포켓몬 스텟
     func fetchPartnerPokemonPower(id: Int) {
         let url = URL.urlWith(id: id)
@@ -164,5 +176,9 @@ class PokemonViewModel {
             .store(in: &cancellables)
     }
     
+    
+    func fetchAllPokemonImage (id:Int) {
+        let imageUrlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(id).png"
+    }
     
 }

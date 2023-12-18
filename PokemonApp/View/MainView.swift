@@ -24,6 +24,8 @@ class MainView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(UserDefaults.standard.array(forKey: "allPokemonTypes")!)
+
         pokeService = PokeService()
         pokemonViewModel = PokemonViewModel(pokeService!)
         pokemonViewModel?.fetchAllPokemonNames()

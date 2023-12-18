@@ -72,6 +72,10 @@ class BattleView: UIViewController {
         self.EnemyPower()
         
         self.PartnerBP.text = self.partnerBP
+        
+        progressView.layer.cornerRadius = 15
+        progressView.clipsToBounds = true
+
     }
     
     @IBAction func BattleStart(_ sender: Any) {

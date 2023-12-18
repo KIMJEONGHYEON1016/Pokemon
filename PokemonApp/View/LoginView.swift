@@ -15,17 +15,52 @@ class LoginView: UIViewController {
     @IBOutlet weak var Image2: UIImageView!
     @IBOutlet weak var Image3: UIImageView!
     
+    @IBOutlet weak var MainImage: UIImageView!
+    @IBOutlet weak var LoginBtn: UIButton!
+    
     var googleAuth: GoogleAuthentication?
     var authViewModel: AuthenticationViewModel?
     private var cancellables = Set<AnyCancellable>()
+    var pokemonViewModel: PokemonViewModel?
+    var pokeService: PokeService?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        pokeService = PokeService()
+        pokemonViewModel = PokemonViewModel(pokeService!)
         googleAuth = GoogleAuthentication()
         authViewModel = AuthenticationViewModel(googleAuth!)
         performAnimationSequence()
+        FetchPokemonInfo()
     }
     
+    //로그인 전에 포켓몬 배열 저장
+    func FetchPokemonInfo(){
+        MainImage.isHidden = true
+        LoginBtn.isHidden = true
+        let loadingImageView = UIImageView(frame: CGRect(x: 160, y: 550, width: 80, height: 65))
+        let loadingImageView2 = UIImageView(frame: CGRect(x: 144, y: 253, width: 138, height: 142))
+
+        loadingImageView.image = UIImage(named: "free-icon-loading-8999447")
+        loadingImageView2.image = UIImage(named: "free-icon-pikachu-188939")
+        self.view.addSubview(loadingImageView)
+        self.view.addSubview(loadingImageView2)
+        pokemonViewModel?.fetchAllPokemonNames()
+        pokemonViewModel?.fetchAllPokemonTypes()
+        pokemonViewModel?.$allPokemonTypes
+                    .sink { types in
+                        if types.count == 151 {
+                            DispatchQueue.main.async{
+                                loadingImageView.isHidden = true
+                                loadingImageView2.isHidden = true
+                                self.MainImage.isHidden = false
+                                self.LoginBtn.isHidden = false
+                                self.LoginBtn.setBackgroundImage(UIImage(named: "google-sign"), for: .normal)
+                                self.LoginBtn.contentMode = .scaleToFill
+                            }
+                        }
+                    }.store(in: &cancellables)
+    }
     
     //애니메이션 딜레이 함수
     func performAnimationSequence() {

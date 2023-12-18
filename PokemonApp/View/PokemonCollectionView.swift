@@ -18,8 +18,8 @@ class PokemonCollectionView: UIViewController {
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
     private var cancellables = Set<AnyCancellable>()
-    
-    
+    var pokemonNames : [String] = UserDefaults.standard.array(forKey: "allPokemonNames") as! [String]
+    var pokemonTypes : [[String]] = UserDefaults.standard.array(forKey: "allPokemonTypes") as! [[String]]
     override func viewDidLoad() {
         super.viewDidLoad()
         pokemonCollection.dataSource = self
@@ -29,17 +29,17 @@ class PokemonCollectionView: UIViewController {
         DismissButton()
     }
     
+    //뒤로가기 버튼 설정
     func DismissButton (){
-        dismissBtn.layer.cornerRadius = dismissBtn.frame.height / 2 // 버튼을 동그랗게 만듭니다.
+        dismissBtn.layer.cornerRadius = dismissBtn.frame.height / 2
         dismissBtn.layer.borderWidth = 1.0 // 테두리 두께 설정
-        dismissBtn.layer.borderColor = UIColor.systemBlue.cgColor // 시스템 블루 색상으로 테두리 색 설정
-        dismissBtn.clipsToBounds = true // 버튼의 경계를 벗어나는 부분은 잘라냅니다.
+        dismissBtn.layer.borderColor = UIColor.systemBlue.cgColor
+        dismissBtn.clipsToBounds = true
     }
    
    
     @IBAction func dismissBtn(_ sender: Any) {
         self.dismiss(animated: true)
-        
     }
     
 }
@@ -48,10 +48,10 @@ class PokemonCollectionView: UIViewController {
 //데이터 소스 설정
 extension PokemonCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if PokemonViewModel.allPokemonTypes.count < PokemonViewModel.allPokemonNames.count {
-            return PokemonViewModel.allPokemonTypes.count
+        if self.pokemonTypes.count < self.pokemonNames.count {
+            return pokemonTypes.count
         } else {
-            return PokemonViewModel.allPokemonNames.count
+            return self.pokemonNames.count
         }
     }
     
@@ -71,7 +71,7 @@ extension PokemonCollectionView: UICollectionViewDataSource {
             
             
             //포켓몬 이름
-            cell.PokemonName.text = PokemonViewModel.allPokemonNames[indexPath.row]
+            cell.PokemonName.text = pokemonNames[indexPath.row]
             cell.PokemonImage.layer.cornerRadius = 12
             
            
@@ -81,20 +81,20 @@ extension PokemonCollectionView: UICollectionViewDataSource {
             cell.PokemonType1.clipsToBounds = true
             cell.PokemonType2   .clipsToBounds = true
 
-            if PokemonViewModel.allPokemonTypes[indexPath.row].count == 1  {
+            if pokemonTypes[indexPath.row].count == 1  {
                 cell.PokemonType2.isHidden = true
-                cell.PokemonType1.text = PokemonViewModel.allPokemonTypes[indexPath.row][0]
+                cell.PokemonType1.text = pokemonTypes[indexPath.row][0]
                 
                 //타입명 색상
                 cell.PokemonType1.backgroundColor = ThemeColor.typeColor(type: cell.PokemonType1.text!)
                 
                 //이미지 백그라운드 색상
                 cell.PokemonImage.backgroundColor = ThemeColor.typeColor(type: cell.PokemonType1.text!).withAlphaComponent(0.6)
-            } else if PokemonViewModel.allPokemonTypes[indexPath.row].count == 2  {
+            } else if pokemonTypes[indexPath.row].count == 2  {
     
                 cell.PokemonType2.isHidden = false
-                cell.PokemonType1.text = PokemonViewModel.allPokemonTypes[indexPath.row][0]
-                cell.PokemonType2.text = PokemonViewModel.allPokemonTypes[indexPath.row][1]
+                cell.PokemonType1.text = pokemonTypes[indexPath.row][0]
+                cell.PokemonType2.text = pokemonTypes[indexPath.row][1]
                 
                 //타입명 색상
                 cell.PokemonType1.backgroundColor = ThemeColor.typeColor(type: cell.PokemonType1.text!)
@@ -137,6 +137,8 @@ extension PokemonCollectionView: UICollectionViewDelegate {
 }
 
 
+
+//셀 위치설정
 extension PokemonCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let inset: CGFloat = 7 // 원하는 간격 설정

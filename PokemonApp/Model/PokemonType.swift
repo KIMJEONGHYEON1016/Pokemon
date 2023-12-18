@@ -27,6 +27,25 @@ enum PokemonType: String {
     case fairy
     
 }
+let typeMapping: [String: String] = [
+    "normal": "노말",
+    "fighting": "격투",
+    "flying": "비행",
+    "poison": "독",
+    "ground": "땅",
+    "rock": "바위",
+    "bug": "벌레",
+    "ghost": "유령",
+    "steel": "강철",
+    "fire": "불",
+    "water": "물",
+    "grass": "풀",
+    "psychic": "에스퍼",
+    "ice": "얼음",
+    "dragon": "용",
+    "dark": "어둠",
+    "fairy": "페어리"
+]
 
 struct ThemeColor {
     static let primary = UIColor(hexString: "D21312")
@@ -52,43 +71,42 @@ struct ThemeColor {
     
     static func typeColor(type: String) -> UIColor {
         switch type {
-        case "normal":
+        case "노말":
             return ThemeColor.normal
-        case "fighting":
+        case "격투":
             return ThemeColor.fighting
-        case "flying":
+        case "비행":
             return ThemeColor.flying
-        case "poison":
+        case "독":
             return ThemeColor.poison
-        case "ground":
+        case "땅":
             return ThemeColor.ground
-        case "rock":
+        case "바위":
             return ThemeColor.rock
-        case "bug":
+        case "벌레":
             return ThemeColor.bug
-        case "ghost":
+        case "유령":
             return ThemeColor.ghost
-        case "steel":
+        case "강철":
             return ThemeColor.steel
-        case "fire":
+        case "불":
             return ThemeColor.fire
-        case "water":
+        case "물":
             return ThemeColor.water
-        case "grass":
+        case "풀":
             return ThemeColor.grass
-        case "psychic":
+        case "에스퍼":
             return ThemeColor.psychic
-        case "ice":
+        case "얼음":
             return ThemeColor.ice
-        case "dragon":
+        case "용":
             return ThemeColor.dragon
-        case "dark":
+        case "어둠":
             return ThemeColor.dark
-        case "fairy":
+        case "페어리":
             return ThemeColor.fairy
         default:
-            return ThemeColor.fire
+            return ThemeColor.fire // 기본값은 불 속성으로 설정합니다.
         }
     }
 }
-

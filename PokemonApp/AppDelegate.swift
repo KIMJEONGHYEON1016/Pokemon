@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         var pokemonViewModel: PokemonViewModel?
         pokemonViewModel?.fetchAllPokemonTypes()
-        pokemonViewModel?.fetchAllPokemonTypes()
+        pokemonViewModel?.fetchAllPokemonNames()
 
         FirebaseApp.configure()
         
