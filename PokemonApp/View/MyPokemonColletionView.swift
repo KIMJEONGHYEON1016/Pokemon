@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import FirebaseFirestore
 import Combine
+import SDWebImage
 
 class MyPokemonColletionView: UIViewController {
     
@@ -17,7 +18,7 @@ class MyPokemonColletionView: UIViewController {
     var fireStore: FireStoreService?
     var cancellables = Set<AnyCancellable>()
     var myPokemonNum: Int = 0
-    
+    let userEmail = UserDefaults.standard.string(forKey: "UserEmailKey")!
     override func viewDidLoad() {
         super.viewDidLoad()
         myPokemonColltion.dataSource = self
@@ -25,7 +26,6 @@ class MyPokemonColletionView: UIViewController {
         
         fireStore = FireStoreService()
         fireStoreViewModel = FireStoreViewModel(fireStore!)
-        
     }
     
     func PokemonMiniImage(viewModel: FireStoreViewModel, Num: Int, image: UIImageView) {
@@ -38,6 +38,8 @@ class MyPokemonColletionView: UIViewController {
                         image.sd_setImage(with: imageUrl, completed: nil)
                         
                         self.myPokemonNum = pokeNumber.count
+                        print(imageUrl)
+                        print(self.myPokemonNum)
                     }
                 }
             }.store(in: &cancellables)

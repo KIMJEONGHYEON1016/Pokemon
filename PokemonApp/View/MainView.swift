@@ -21,11 +21,16 @@ class MainView: UIViewController {
     var partner: Partner?
     var battlepoint: Int = 0
     private var cancellables = Set<AnyCancellable>()
+    var fireStoreViewModel: FireStoreViewModel?
+    var fireStore: FireStoreService?
+    let userEmail = UserDefaults.standard.string(forKey: "UserEmailKey")!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(UserDefaults.standard.array(forKey: "allPokemonTypes")!)
-
+        fireStore = FireStoreService()
+        fireStoreViewModel = FireStoreViewModel(fireStore!)
+        
         pokeService = PokeService()
         pokemonViewModel = PokemonViewModel(pokeService!)
         pokemonViewModel?.fetchAllPokemonNames()
@@ -37,6 +42,7 @@ class MainView: UIViewController {
         MoveMainPokemon()
         PokemonName()
         PokemonImage()
+        fireStoreViewModel?.getPokemonData(for: userEmail)
         }
     
     

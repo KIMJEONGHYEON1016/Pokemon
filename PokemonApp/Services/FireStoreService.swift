@@ -57,7 +57,7 @@ class FireStoreService {
                         promise(.failure(error))
                     } else if let document = document, document.exists {
                         let data = document.data()
-                        if let pokeNumber = data?["pokeNumber"] as? [Int] {
+                        if let pokeNumber = data?["보유 포켓몬"] as? [Int] {
                             promise(.success(pokeNumber))
                         } else {
                             promise(.success(nil))
