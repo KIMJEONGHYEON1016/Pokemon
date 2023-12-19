@@ -336,12 +336,20 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wmX-Kn-MEI" customClass="FLAnimatedImageView">
+                                <rect key="frame" x="278" y="245" width="65" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="5eZ-3F-aIg"/>
+                                    <constraint firstAttribute="height" constant="65" id="rsF-C0-1dD"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3uI-Sq-vUj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hgi-5Z-3Tx" firstAttribute="top" secondItem="3uI-Sq-vUj" secondAttribute="top" constant="711" id="2J5-gt-7vg"/>
                             <constraint firstItem="3uI-Sq-vUj" firstAttribute="bottom" secondItem="nNH-Vd-cJ0" secondAttribute="bottom" constant="244" id="2TB-dG-vfi"/>
+                            <constraint firstItem="3uI-Sq-vUj" firstAttribute="trailing" secondItem="wmX-Kn-MEI" secondAttribute="trailing" constant="50" id="42z-uZ-BUE"/>
                             <constraint firstItem="l7c-H7-nEc" firstAttribute="top" secondItem="3uI-Sq-vUj" secondAttribute="top" constant="82" id="69n-bG-r4W"/>
                             <constraint firstItem="VYv-3x-tOa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3uI-Sq-vUj" secondAttribute="leading" symbolic="YES" id="83A-AJ-HLk"/>
                             <constraint firstItem="nNH-Vd-cJ0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3uI-Sq-vUj" secondAttribute="leading" id="9Yi-f5-yNj"/>
@@ -354,6 +362,7 @@
                             <constraint firstItem="3uI-Sq-vUj" firstAttribute="trailing" secondItem="3w9-iI-UZc" secondAttribute="trailing" constant="25" id="M31-uv-dwO"/>
                             <constraint firstItem="3uI-Sq-vUj" firstAttribute="trailing" secondItem="VYv-3x-tOa" secondAttribute="trailing" constant="61" id="MXQ-Sa-bIE"/>
                             <constraint firstItem="VYv-3x-tOa" firstAttribute="top" secondItem="wro-w0-mFL" secondAttribute="bottom" constant="18" id="MZh-iz-97n"/>
+                            <constraint firstItem="wmX-Kn-MEI" firstAttribute="top" secondItem="VYv-3x-tOa" secondAttribute="bottom" constant="89" id="RfW-o5-67a"/>
                             <constraint firstItem="3uI-Sq-vUj" firstAttribute="bottom" secondItem="QuW-Kg-mzW" secondAttribute="bottom" id="U3I-ZW-W6c"/>
                             <constraint firstItem="l7c-H7-nEc" firstAttribute="leading" secondItem="VYv-3x-tOa" secondAttribute="trailing" constant="-123" id="Xjq-wI-iZN"/>
                             <constraint firstItem="7FZ-Qj-Ppc" firstAttribute="top" secondItem="wro-w0-mFL" secondAttribute="bottom" constant="1" id="ZQu-z9-bIF"/>
@@ -377,6 +386,7 @@
                         <outlet property="PartnerBP" destination="nNH-Vd-cJ0" id="xA8-cs-dvp"/>
                         <outlet property="PartnerPokemon" destination="QuW-Kg-mzW" id="BHN-gr-PG9"/>
                         <outlet property="WildPokemon" destination="l7c-H7-nEc" id="jb1-zB-6ds"/>
+                        <outlet property="pokeBall" destination="wmX-Kn-MEI" id="Rj3-Ok-a60"/>
                         <outlet property="progressView" destination="wro-w0-mFL" id="Lhv-cm-6Xw"/>
                     </connections>
                 </viewController>
@@ -537,57 +547,72 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="스크린샷 2023-12-18 오후 5.11.56" translatesAutoresizingMaskIntoConstraints="NO" id="h71-LF-w4k">
                                 <rect key="frame" x="0.0" y="136" width="393" height="51"/>
-                                <color key="backgroundColor" red="0.8624242768" green="0.90775047679999998" blue="0.98825007679999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.98825007679999999" green="0.97978685080000005" blue="0.87409437339999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="K9T-ic-z8A"/>
+                                </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="K4r-kW-mEA">
-                                <rect key="frame" x="0.0" y="181" width="393" height="587"/>
+                                <rect key="frame" x="0.0" y="181" width="393" height="536"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.86242427684373757" green="0.90775047683197441" blue="0.98825007679999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.73025232385342431" green="0.96689492464065552" blue="0.72308763483717065" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uln-ED-Ih4">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="112" height="107"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Otl-bj-ckS">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MyPokemonCollectionViewCell" reuseIdentifier="MyPokemonCollectionViewCell" id="Otl-bj-ckS" customClass="MyPokemonCollectionViewCell" customModule="PokemonApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jwO-bk-Gz0">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="adU-b5-IJz">
-                                                    <rect key="frame" x="13" y="12" width="55" height="56"/>
+                                                    <rect key="frame" x="28" y="28" width="54" height="54"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="54" id="EOS-3c-GCn"/>
+                                                        <constraint firstAttribute="width" constant="54" id="ooy-Le-dcw"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="adU-b5-IJz" firstAttribute="leading" secondItem="jwO-bk-Gz0" secondAttribute="leading" constant="13" id="CR1-dq-ayU"/>
-                                                <constraint firstAttribute="trailing" secondItem="adU-b5-IJz" secondAttribute="trailing" constant="12" id="jWf-P7-Lem"/>
-                                                <constraint firstAttribute="bottom" secondItem="adU-b5-IJz" secondAttribute="bottom" constant="12" id="jYo-Kg-c5E"/>
-                                                <constraint firstItem="adU-b5-IJz" firstAttribute="top" secondItem="jwO-bk-Gz0" secondAttribute="top" constant="12" id="rZ6-Qd-mGs"/>
+                                                <constraint firstItem="adU-b5-IJz" firstAttribute="centerX" secondItem="jwO-bk-Gz0" secondAttribute="centerX" id="8tq-PY-cFG"/>
+                                                <constraint firstItem="adU-b5-IJz" firstAttribute="centerY" secondItem="jwO-bk-Gz0" secondAttribute="centerY" id="jFp-lU-bIl"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="80" height="80"/>
+                                        <size key="customSize" width="110" height="110"/>
+                                        <connections>
+                                            <outlet property="pokemon_mini" destination="adU-b5-IJz" id="0J4-kQ-Vmv"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="스크린샷 2023-12-18 오후 5.11.56" translatesAutoresizingMaskIntoConstraints="NO" id="9AK-ED-21T">
-                                <rect key="frame" x="0.0" y="767" width="393" height="51"/>
-                                <color key="backgroundColor" red="0.8624242768" green="0.90775047679999998" blue="0.98825007679999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="스크린샷 2023-12-18 오후 5.11.56" translatesAutoresizingMaskIntoConstraints="NO" id="9AK-ED-21T">
+                                <rect key="frame" x="0.0" y="716" width="393" height="51"/>
+                                <color key="backgroundColor" red="0.98825007679999999" green="0.97978685080000005" blue="0.87409437339999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="8" id="KFi-BX-f3u"/>
+                                    <constraint firstAttribute="height" constant="51" id="K0z-D6-mQW"/>
+                                    <constraint firstAttribute="width" constant="393" id="ffP-wO-OU0"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2AW-QM-5Hu"/>
-                        <color key="backgroundColor" red="0.8624242768" green="0.90775047679999998" blue="0.98825007679999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.98825007679999999" green="0.97978685077055894" blue="0.87409437340225071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="h71-LF-w4k" firstAttribute="leading" secondItem="2AW-QM-5Hu" secondAttribute="leading" id="5gx-ub-bXE"/>
+                            <constraint firstItem="2AW-QM-5Hu" firstAttribute="bottom" secondItem="9AK-ED-21T" secondAttribute="bottom" constant="51" id="Dvf-NL-uKP"/>
                             <constraint firstItem="h71-LF-w4k" firstAttribute="top" secondItem="2AW-QM-5Hu" secondAttribute="top" constant="77" id="Oem-DO-iPo"/>
                             <constraint firstItem="h71-LF-w4k" firstAttribute="trailing" secondItem="2AW-QM-5Hu" secondAttribute="trailing" id="WaU-Bd-8C5"/>
+                            <constraint firstItem="9AK-ED-21T" firstAttribute="leading" secondItem="2AW-QM-5Hu" secondAttribute="leading" id="dN4-tC-x7E"/>
+                            <constraint firstItem="9AK-ED-21T" firstAttribute="trailing" secondItem="2AW-QM-5Hu" secondAttribute="trailing" id="gtl-Pc-8S0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myPokemonColltionView" destination="K4r-kW-mEA" id="hm6-HO-00s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6T-0T-vqu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

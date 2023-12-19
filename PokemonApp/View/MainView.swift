@@ -17,7 +17,7 @@ class MainView: UIViewController {
     
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
-    var mainPokemonNumber  = 4
+    var mainPokemonNumber  = 151
     var partner: Partner?
     var battlepoint: Int = 0
     private var cancellables = Set<AnyCancellable>()
@@ -105,6 +105,31 @@ class MainView: UIViewController {
         // 애니메이션이 끝나면 completion 블록 실행
         DispatchQueue.main.asyncAfter(deadline: .now() + animation.duration) {
             completion()
+        }
+    }
+    
+    func showStartScreen() {
+        let startView = UIView(frame: UIScreen.main.bounds)
+        startView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        let startLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 400, height: 300))
+        startLabel.center = startView.center
+        startLabel.textAlignment = .center
+        startLabel.textColor = UIColor.red
+        startLabel.text = "전투 돌입!"
+        startLabel.numberOfLines = 0
+        startView.addSubview(startLabel)
+        
+        if let keyWindowScene = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .first(where: { $0.activationState == .foregroundActive }),
+            let keyWindow = keyWindowScene.windows.first(where: { $0.isKeyWindow }) {
+            
+            keyWindow.addSubview(startView)
+            
+            // 원하는 시간 이후에 화면을 제거하고 dismiss 실행
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                startView.removeFromSuperview()
+            }
         }
     }
 

@@ -21,6 +21,8 @@ class BattleView: UIViewController {
     @IBOutlet weak var BattleTime: UILabel!
     @IBOutlet weak var EnemyBP: UILabel!
     @IBOutlet weak var PartnerBP: UILabel!
+    @IBOutlet weak var pokeBall: FLAnimatedImageView!
+    
     
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
@@ -45,18 +47,23 @@ class BattleView: UIViewController {
         }
     }
     let targetSeconds = 20
+    let maxEnergy = 10000
+    var pokemonNames : [String] = UserDefaults.standard.array(forKey: "allPokemonNames") as! [String]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.pokeBall.isHidden = true
+        
         id = Int.random(in: 1...151)            //랜덤 id
         pokeService = PokeService()
         pokemonViewModel = PokemonViewModel(pokeService!)
-//        EnergyBar.trackTintColor = .black
-
+        //        EnergyBar.trackTintColor = .black
+        
         
         self.pokemonViewModel?.fetchPokemon(id: self.partnerPokemonNumber ?? 0)
         self.PartnerPokemonImage(FLAIMG: self.PartnerPokemon)
-
+        
         
         
         self.pokemonViewModel?.fetchWildPokemon(id: self.id)
@@ -75,7 +82,8 @@ class BattleView: UIViewController {
         
         progressView.layer.cornerRadius = 15
         progressView.clipsToBounds = true
-
+        
+        
     }
     
     @IBAction func BattleStart(_ sender: Any) {
@@ -91,40 +99,74 @@ class BattleView: UIViewController {
             self.energy = (partnerHP + enemyHP) * 10
             self.winEnergy = self.energy * 2
         } else {
-            // Handle the case when either partner or enemy or both are nil
-            // For example, assigning default values:
             self.energy = 0
             self.winEnergy = 0
         }
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         view.addGestureRecognizer(tapGesture)
         
         //타이머 시작
         startTimer()
         startEnergyDecrement()
-
+        
     }
     
     //공격
     @objc func handleTap(_ gesture: UITapGestureRecognizer) {
-        if (partner?.attack)!-((enemy?.defense)! + (enemy?.hp)!)/7 < 1 {
-            energy += 1
-        } else {
-            energy += (partner?.attack)!-((enemy?.defense)! + (enemy?.hp)!)/7
-            print("energy 변수의 값: \(energy)")
-    
-            if energy >= self.winEnergy {
-                self.dismiss(animated: true)
-                
-                
-                timer?.invalidate() // 타이머 중지
-
-                // 타이머가 멈추면서 secondsPassed도 멈추도록 처리
-                self.timer = nil // 타이머를 nil로 설정하여 더 이상 업데이트되지 않도록 함
-                print("win")
+        if energy <= self.winEnergy {
+            if (partner?.attack)!-((enemy?.defense)! + (enemy?.hp)!)/7 < 1 {
+                energy += 1
+            } else {
+                energy += (partner?.attack)!-((enemy?.defense)! + (enemy?.hp)!)/7
+                print("energy 변수의 값: \(energy)")
+            }
+        }else{
+            gesture.isEnabled = false
+            timer?.invalidate() // 타이머 중지
+            
+            // 타이머가 멈추면서 secondsPassed도 멈추도록 처리
+            self.timer = nil // 타이머를 nil로 설정하여 더 이상 업데이트되지 않도록 함
+            print("win")
+            shrinkAndDisappear()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                self.showWinScreen()
             }
         }
+
     }
+    
+    //적 패배 모션
+    func shrinkAndDisappear() {
+        
+        //포켓볼 애니메이션
+        self.pokeBall.isHidden = false
+        if let gifURL = Bundle.main.url(forResource: "PokeBall", withExtension: "gif") {
+                    do {
+                        let imageData = try Data(contentsOf: gifURL)
+                        if let animatedImage = FLAnimatedImage(animatedGIFData: imageData) {
+                            self.pokeBall.animatedImage = animatedImage
+                        }
+                    } catch {
+                        print("Error loading GIF image: \(error)")
+                    }
+                
+                }
+
+        self.WildPokemon.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+
+            UIView.animate(withDuration: 1.0, animations: {
+                // 이미지 크기를 작게 만들어 줍니다.
+                self.WildPokemon.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+                // 혹은 원하는 최종 크기나 투명도 등의 설정을 할 수 있습니다.
+                // self.WildPokemon.alpha = 0.0
+            }) { (finished) in
+                if finished {
+                    // 애니메이션이 끝난 후에 해당 뷰를 숨기거나 제거합니다.
+                    self.WildPokemon.isHidden = true // 숨기기
+                                    }
+            }
+        }
     
     
    // 적 공격
@@ -158,6 +200,7 @@ class BattleView: UIViewController {
         lossLabel.textColor = UIColor.white
         lossLabel.text = "패배했다. 눈 앞이 깜깜해졌다!"
         lossLabel.numberOfLines = 0
+        lossLabel.font = UIFont.boldSystemFont(ofSize: 25)
         lossView.addSubview(lossLabel)
         
         if let keyWindowScene = UIApplication.shared.connectedScenes
@@ -174,8 +217,37 @@ class BattleView: UIViewController {
             }
         }
     }
+    //승리화면
+    func showWinScreen() {
+        let winView = UIView(frame: UIScreen.main.bounds)
+        winView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+        let winLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 800, height: 400))
+        winLabel.center = winView.center
+        winLabel.textAlignment = .center
+        winLabel.textColor = UIColor.black
+        winLabel.text = "야호!" + " \(pokemonNames[id-1])" + " 넌 내 꺼야!"
+        winLabel.numberOfLines = 0
+        winLabel.font = UIFont.boldSystemFont(ofSize: 25)
+
+        winView.addSubview(winLabel)
+        
+        if let keyWindowScene = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .first(where: { $0.activationState == .foregroundActive }),
+            let keyWindow = keyWindowScene.windows.first(where: { $0.isKeyWindow }) {
+            
+            keyWindow.addSubview(winView)
+            
+            // 원하는 시간 이후에 화면을 제거하고 dismiss 실행
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                winView.removeFromSuperview()
+                self.dismiss(animated: true)
+            }
+        }
+    }
 
 
+    
     //타이머 시작
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)

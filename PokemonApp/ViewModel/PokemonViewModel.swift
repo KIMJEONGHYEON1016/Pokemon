@@ -176,9 +176,5 @@ class PokemonViewModel {
             .store(in: &cancellables)
     }
     
-    
-    func fetchAllPokemonImage (id:Int) {
-        let imageUrlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(id).png"
-    }
-    
+   
 }
