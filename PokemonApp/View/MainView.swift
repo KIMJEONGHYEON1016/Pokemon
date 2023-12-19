@@ -149,4 +149,10 @@ class MainView: UIViewController {
         present(collectionVC, animated: true)
     }
     
+    @IBAction func myPokemon(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let MyPokemonColletionVC = storyboard.instantiateViewController(withIdentifier: "MyPokemonColletionView") as! MyPokemonColletionView
+        MyPokemonColletionVC.modalPresentationStyle = .fullScreen
+        present(MyPokemonColletionVC, animated: true)
+    }
 }

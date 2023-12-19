@@ -26,7 +26,9 @@ class BattleView: UIViewController {
     
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
-    private var cancellables = Set<AnyCancellable>()
+    var fireStoreViewModel: FireStoreViewModel?
+    var fireStore: FireStoreService?
+    var cancellables = Set<AnyCancellable>()
     var id: Int = Int.random(in: 1...151)
     var partnerPokemonNumber: Int?
     var energy: Int = 0{
@@ -54,6 +56,10 @@ class BattleView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pokeBall.isHidden = true
+        
+        fireStore = FireStoreService()
+        fireStoreViewModel = FireStoreViewModel(fireStore!)
+        
         
         id = Int.random(in: 1...151)            //랜덤 id
         pokeService = PokeService()
@@ -129,8 +135,12 @@ class BattleView: UIViewController {
             self.timer = nil // 타이머를 nil로 설정하여 더 이상 업데이트되지 않도록 함
             print("win")
             shrinkAndDisappear()
+            let userEmail = UserDefaults.standard.string(forKey: "UserEmailKey")!
+            //파이어스토어에 잡은 포켓몬 등록
+            self.fireStoreViewModel?.addNewPokemonNumber(email: userEmail, newPokeNumber: self.id)
             DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 self.showWinScreen()
+            
             }
         }
 
@@ -225,7 +235,7 @@ class BattleView: UIViewController {
         winLabel.center = winView.center
         winLabel.textAlignment = .center
         winLabel.textColor = UIColor.black
-        winLabel.text = "야호!" + " \(pokemonNames[id-1])" + " 넌 내 꺼야!"
+        winLabel.text = "야호!" + " \(pokemonNames[id-1])" + " 넌 내꺼야!"
         winLabel.numberOfLines = 0
         winLabel.font = UIFont.boldSystemFont(ofSize: 25)
 
