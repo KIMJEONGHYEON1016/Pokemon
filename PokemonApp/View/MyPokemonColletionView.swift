@@ -16,7 +16,8 @@ class MyPokemonColletionView: UIViewController {
     var myPokemonNum: Int = 0
     let userEmail = UserDefaults.standard.string(forKey: "UserEmailKey")!
     var pokeNumber: [Int] = []
-    
+    var pokemonTypes : [[String]] = UserDefaults.standard.array(forKey: "allPokemonTypes") as! [[String]]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         myPokemonColltion.dataSource = self
@@ -120,7 +121,6 @@ class MyPokemonColletionView: UIViewController {
         let pokemonInfoView = UIView(frame: CGRect(x: 16, y: 199, width: 360, height: 450))
         let pokemonImageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 190, height: 200))
         pokemonInfoView.backgroundColor = .white
-        pokemonImageView.backgroundColor = .white
         pokemonInfoView.layer.cornerRadius = 15
         pokemonImageView.layer.cornerRadius = 15
         pokemonImageView.clipsToBounds = true
@@ -129,25 +129,25 @@ class MyPokemonColletionView: UIViewController {
 
         let nameLabel = UILabel(frame: CGRect(x: 220, y: 10, width: 100, height: 50))
         nameLabel.textAlignment = .center
-        nameLabel.textColor = UIColor.black
+        nameLabel.textColor = UIColor.white
         nameLabel.numberOfLines = 0
         nameLabel.font = UIFont.boldSystemFont(ofSize: 25)
         
         let generaLabel = UILabel(frame: CGRect(x: 198, y: 40, width: 150, height: 50))
         generaLabel.textAlignment = .center
-        generaLabel.textColor = UIColor.lightGray
+        generaLabel.textColor = UIColor.darkGray
         generaLabel.numberOfLines = 1
         generaLabel.font = UIFont.systemFont(ofSize: 18)
         
         let heightLabel = UILabel(frame: CGRect(x: 201, y: 120, width: 200, height: 50))
         heightLabel.textAlignment = .left
-        heightLabel.textColor = UIColor.black
+        heightLabel.textColor = UIColor.white
         heightLabel.numberOfLines = 1
         heightLabel.font = UIFont.systemFont(ofSize: 22)
         
         let weightLabel = UILabel(frame: CGRect(x: 198, y: 160, width: 200, height: 50))
         weightLabel.textAlignment = .left
-        weightLabel.textColor = UIColor.black
+        weightLabel.textColor = UIColor.white
         weightLabel.numberOfLines = 1
         weightLabel.font = UIFont.systemFont(ofSize: 22)
 
@@ -155,9 +155,31 @@ class MyPokemonColletionView: UIViewController {
         let Pokemontext = UILabel(frame: CGRect(x: 24, y: 230, width: 300, height: 150))
         Pokemontext.textAlignment = .left
         Pokemontext.textAlignment = .center
-        Pokemontext.textColor = UIColor.black
+        Pokemontext.textColor = UIColor.white
         Pokemontext.numberOfLines = 0
         Pokemontext.font = UIFont.boldSystemFont(ofSize: 23)
+        
+        let PokemonType1 = UILabel(frame: CGRect(x: 5, y: 205, width: 90, height: 25))
+        PokemonType1.textAlignment = .left
+        PokemonType1.textAlignment = .center
+        PokemonType1.textColor = UIColor.white
+        PokemonType1.numberOfLines = 0
+        PokemonType1.font = UIFont.boldSystemFont(ofSize: 18)
+        PokemonType1.layer.cornerRadius = 5
+        PokemonType1.clipsToBounds = true
+        PokemonType1.layer.borderWidth = 1.0 // 테두리 두께 설정
+        PokemonType1.layer.borderColor = UIColor.black.cgColor // 테두리 색상 설정
+        
+        let PokemonType2 = UILabel(frame: CGRect(x: 100, y: 205, width: 90, height: 25))
+        PokemonType2.textAlignment = .left
+        PokemonType2.textAlignment = .center
+        PokemonType2.textColor = UIColor.white
+        PokemonType2.numberOfLines = 0
+        PokemonType2.font = UIFont.boldSystemFont(ofSize: 18)
+        PokemonType2.layer.cornerRadius = 5
+        PokemonType2.clipsToBounds = true
+        PokemonType2.layer.borderWidth = 1.0 // 테두리 두께 설정
+        PokemonType2.layer.borderColor = UIColor.black.cgColor // 테두리 색상 설정
         
         //태그에 indexPath할당 후 포켓몬 이미지 할당
         guard let imageView = sender.view as? UIImageView else { return }
@@ -165,6 +187,18 @@ class MyPokemonColletionView: UIViewController {
         let imageUrlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokeNumber[row]).png"
         //이름 설정
         nameLabel.text = UserDefaults.standard.array(forKey: "allPokemonNames")![pokeNumber[row]-1] as? String
+        if pokemonTypes[pokeNumber[row]-1].count == 1 {
+            PokemonType1.text = pokemonTypes[pokeNumber[row]-1][0]
+            pokemonInfoView.addSubview(PokemonType1)
+        } else {
+            PokemonType1.text = pokemonTypes[pokeNumber[row]-1][0]
+            PokemonType2.text = pokemonTypes[pokeNumber[row]-1][1]
+            pokemonInfoView.addSubview(PokemonType1)
+            pokemonInfoView.addSubview(PokemonType2)
+            PokemonType2.backgroundColor = ThemeColor.typeColor(type: PokemonType2.text!)
+        }
+        PokemonType1.backgroundColor = ThemeColor.typeColor(type: PokemonType1.text!)
+        pokemonInfoView.backgroundColor = ThemeColor.typeColor(type: PokemonType1.text!).withAlphaComponent(0.8)
         
         pokemonViewModel?.fetchPokemonGenera(id: pokeNumber[row])
         pokemonViewModel?.fetchPokemonWeight(id: pokeNumber[row])
