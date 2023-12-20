@@ -632,8 +632,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75d-gT-LsV">
                                 <rect key="frame" x="325" y="59" width="52" height="38"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="52" id="88z-ST-7jw"/>
-                                    <constraint firstAttribute="height" constant="38" id="M3Z-gW-jX9"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="52" id="LjM-fn-Mbm"/>
+                                    <constraint firstAttribute="height" constant="38" id="f5G-r3-Xm9"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -647,18 +647,17 @@
                         <color key="backgroundColor" red="0.98825007679999999" green="0.97978685077055894" blue="0.87409437340225071" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="h71-LF-w4k" firstAttribute="leading" secondItem="2AW-QM-5Hu" secondAttribute="leading" id="5gx-ub-bXE"/>
+                            <constraint firstItem="75d-gT-LsV" firstAttribute="top" secondItem="2AW-QM-5Hu" secondAttribute="top" id="6eu-4Q-xMv"/>
+                            <constraint firstItem="2AW-QM-5Hu" firstAttribute="trailing" secondItem="75d-gT-LsV" secondAttribute="trailing" constant="16" id="B3w-e1-m9h"/>
                             <constraint firstItem="2AW-QM-5Hu" firstAttribute="bottom" secondItem="9AK-ED-21T" secondAttribute="bottom" constant="51" id="Dvf-NL-uKP"/>
-                            <constraint firstItem="2AW-QM-5Hu" firstAttribute="trailing" secondItem="75d-gT-LsV" secondAttribute="trailing" constant="16" id="L44-Uy-B48"/>
                             <constraint firstItem="NX9-R4-mav" firstAttribute="top" secondItem="9AK-ED-21T" secondAttribute="bottom" constant="3" id="OMF-nq-VtQ"/>
-                            <constraint firstItem="75d-gT-LsV" firstAttribute="top" secondItem="2AW-QM-5Hu" secondAttribute="top" id="OXQ-YZ-epx"/>
                             <constraint firstItem="h71-LF-w4k" firstAttribute="top" secondItem="2AW-QM-5Hu" secondAttribute="top" constant="46" id="Oem-DO-iPo"/>
                             <constraint firstItem="NX9-R4-mav" firstAttribute="centerX" secondItem="Qnm-9l-rx7" secondAttribute="centerX" id="PZ9-8P-rtV"/>
+                            <constraint firstItem="75d-gT-LsV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2AW-QM-5Hu" secondAttribute="leading" symbolic="YES" id="Vfb-ff-4GC"/>
                             <constraint firstItem="h71-LF-w4k" firstAttribute="trailing" secondItem="2AW-QM-5Hu" secondAttribute="trailing" id="WaU-Bd-8C5"/>
+                            <constraint firstItem="h71-LF-w4k" firstAttribute="top" secondItem="75d-gT-LsV" secondAttribute="bottom" constant="8" symbolic="YES" id="a7i-DB-VrM"/>
                             <constraint firstItem="9AK-ED-21T" firstAttribute="leading" secondItem="2AW-QM-5Hu" secondAttribute="leading" id="dN4-tC-x7E"/>
                             <constraint firstItem="9AK-ED-21T" firstAttribute="trailing" secondItem="2AW-QM-5Hu" secondAttribute="trailing" id="gtl-Pc-8S0"/>
-                            <constraint firstItem="2AW-QM-5Hu" firstAttribute="trailing" secondItem="75d-gT-LsV" secondAttribute="trailing" constant="16" id="s3G-Qn-jVt"/>
-                            <constraint firstItem="h71-LF-w4k" firstAttribute="top" secondItem="75d-gT-LsV" secondAttribute="bottom" constant="8" id="vNv-q5-GQ8"/>
-                            <constraint firstItem="75d-gT-LsV" firstAttribute="top" secondItem="2AW-QM-5Hu" secondAttribute="top" id="wRW-Dq-gnR"/>
                         </constraints>
                     </view>
                     <connections>

@@ -19,7 +19,12 @@ class PokemonViewModel {
     @Published var WildPokemonPower: PokemonData?
     @Published var allPokemonNames: [String] = []
     @Published var allPokemonTypes: [[String]] = []
+    @Published var Pokemongenera: PokeSpecies?
+    @Published var PokemonWeight: PokemonData?
+    @Published var PokemonHeight: PokemonData?
+    @Published var PokemonText: PokeSpecies?
 
+    
     
     init(_ Pokemon: PokeService) {
         self.Pokemon = Pokemon
@@ -176,5 +181,63 @@ class PokemonViewModel {
             .store(in: &cancellables)
     }
     
-   
+    func fetchPokemonGenera(id: Int) {
+        let url = URL.urlWithsepc(id: id)
+        guard let url = url else { return }
+
+        Pokemon.getData(url: url)
+            .sink(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    print("Error during fetchMainPokemon: \(error)")
+                }
+            }, receiveValue: { [weak self] data in
+                self?.Pokemongenera = data
+            })
+            .store(in: &cancellables)
+    }
+    
+    func fetchPokemonWeight(id: Int) {
+        let url = URL.urlWith(id: id)
+        guard let url = url else { return }
+
+        Pokemon.getData(url: url)
+            .sink(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    print("Error during fetchMainPokemon: \(error)")
+                }
+            }, receiveValue: { [weak self] data in
+                self?.PokemonWeight = data
+            })
+            .store(in: &cancellables)
+    }
+    
+    func fetchPokemonHeight(id: Int) {
+        let url = URL.urlWith(id: id)
+        guard let url = url else { return }
+
+        Pokemon.getData(url: url)
+            .sink(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    print("Error during fetchMainPokemon: \(error)")
+                }
+            }, receiveValue: { [weak self] data in
+                self?.PokemonHeight = data
+            })
+            .store(in: &cancellables)
+    }
+    
+    func fetchPokemonText(id: Int) {
+        let url = URL.urlWithsepc(id: id)
+        guard let url = url else { return }
+
+        Pokemon.getData(url: url)
+            .sink(receiveCompletion: { completion in
+                if case .failure(let error) = completion {
+                    print("Error during fetchMainPokemon: \(error)")
+                }
+            }, receiveValue: { [weak self] data in
+                self?.PokemonText = data
+            })
+            .store(in: &cancellables)
+    }
 }

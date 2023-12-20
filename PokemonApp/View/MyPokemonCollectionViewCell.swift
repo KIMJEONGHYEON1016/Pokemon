@@ -11,9 +11,13 @@ class MyPokemonCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var pokemon_mini: UIImageView!
     override func awakeFromNib() {
            super.awakeFromNib()
-           startMovingImageView()
+        startMovingImageView()
+        
        }
        
+    
+   
+    
     func startMovingImageView() {
         // 타이머를 이용하여 랜덤한 시간 간격으로 이미지뷰의 애니메이션을 선택하여 실행합니다.
         Timer.scheduledTimer(withTimeInterval: Double.random(in: 2.0...3.0), repeats: true) { [weak self] timer in
