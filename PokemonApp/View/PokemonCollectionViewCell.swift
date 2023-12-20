@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Combine
 
 class PokemonCollectionViewCell: UICollectionViewCell {
     
@@ -15,7 +14,6 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var PokemonName: UILabel!
     @IBOutlet weak var PokemonType1: UILabel!
     @IBOutlet weak var PokemonType2: UILabel!
-    var cancellables = Set<AnyCancellable>()
     
 
     

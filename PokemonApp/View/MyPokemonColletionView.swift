@@ -1,10 +1,3 @@
-//
-//  MyPokemonList.swift
-//  PokemonApp
-//
-//  Created by 김정현 on 2023/12/18.
-//
-
 import Foundation
 import UIKit
 import FirebaseFirestore
@@ -14,11 +7,14 @@ import SDWebImage
 class MyPokemonColletionView: UIViewController {
     
     @IBOutlet weak var myPokemonColltion: UICollectionView!
+    @IBOutlet weak var dismissBtn: UIButton!
     var fireStoreViewModel: FireStoreViewModel?
     var fireStore: FireStoreService?
     var cancellables = Set<AnyCancellable>()
     var myPokemonNum: Int = 0
     let userEmail = UserDefaults.standard.string(forKey: "UserEmailKey")!
+    var pokeNumber: [Int] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         myPokemonColltion.dataSource = self
@@ -26,26 +22,36 @@ class MyPokemonColletionView: UIViewController {
         
         fireStore = FireStoreService()
         fireStoreViewModel = FireStoreViewModel(fireStore!)
+        
+        
+        fireStoreViewModel?.getPokemonData(for: userEmail)
+        PokemonMiniImage()
+        DismissButton()
     }
     
-    func PokemonMiniImage(viewModel: FireStoreViewModel, Num: Int, image: UIImageView) {
-        viewModel.$pokemonID
+    func PokemonMiniImage() {
+        fireStoreViewModel?.$pokemonID
             .receive(on: DispatchQueue.main)
             .sink { data in
-                if let pokeNumber = data?.pokeNumber, Num < pokeNumber.count {
-                    let imageUrlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/\(pokeNumber[Num]).png"
-                    if let imageUrl = URL(string: imageUrlString) {
-                        image.sd_setImage(with: imageUrl, completed: nil)
-                        
-                        self.myPokemonNum = pokeNumber.count
-                        print(imageUrl)
+                if let pokeNumber = data?.pokeNumber {
+                    self.myPokemonNum = pokeNumber.count
+                    self.pokeNumber = pokeNumber
+                    self.myPokemonColltion.reloadData()
+
                         print(self.myPokemonNum)
                     }
-                }
             }.store(in: &cancellables)
     }
 
-
+    @IBAction func DismissButton(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    func DismissButton (){
+        dismissBtn.layer.cornerRadius = dismissBtn.frame.height / 2
+        dismissBtn.layer.borderWidth = 1.0 // 테두리 두께 설정
+        dismissBtn.layer.borderColor = UIColor.systemBlue.cgColor
+        dismissBtn.clipsToBounds = true
+    }
 }
 
 extension MyPokemonColletionView: UICollectionViewDataSource {
@@ -55,10 +61,15 @@ extension MyPokemonColletionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cellId = String(describing: MyPokemonColletionView.self)
+        let cellId = String(describing: MyPokemonCollectionViewCell.self)
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MyPokemonCollectionViewCell
-        PokemonMiniImage(viewModel: fireStoreViewModel!, Num: indexPath.row, image: cell.pokemon_mini)
+        
+        // 이미지 추가
+        let imageUrlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/\(pokeNumber[indexPath.row]).png"
+        if let imageUrl = URL(string: imageUrlString) {
+            cell.pokemon_mini.sd_setImage(with: imageUrl, completed: nil)
+        }
             return cell
     }
 }
@@ -69,4 +80,5 @@ extension MyPokemonColletionView: UICollectionViewDelegate {
         
     }
 }
+
 
