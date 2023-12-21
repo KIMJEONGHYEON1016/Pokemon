@@ -72,10 +72,11 @@ class FireStoreViewModel {
                     if let partnerPokemon = partnerPokemon {
                         // 가져온 pokeNumbers 배열을 사용하여 작업 수행
                         self.partnerPokemon = partnerPokemon
+                        print(partnerPokemon, "데이터 업뎃 성공")
                     } else {
                         print("데이터가 존재하지 않음")
                     }
                 }
-                .store(in: &cancellables) // cancellables에 저장하여 수명주기 관리
+                .store(in: &cancellables)
         }
 }

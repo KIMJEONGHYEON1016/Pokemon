@@ -67,6 +67,9 @@ class MyPokemonColletionView: UIViewController {
 
     @IBAction func DismissButton(_ sender: Any) {
         self.dismiss(animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let MainVC = storyboard.instantiateViewController(withIdentifier: "MainView") as? MainView else { return }
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(MainVC, animated: false)
     }
     func DismissButton (){
         dismissBtn.layer.cornerRadius = dismissBtn.frame.height / 2
@@ -258,10 +261,8 @@ class MyPokemonColletionView: UIViewController {
     @objc func partnerButtonTapped() {
         partnerPokemon = pokeNumber[row!]
         fireStoreViewModel?.addPartnerPokemon(email: self.userEmail, partnerPokeNumber: partnerPokemon!)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let MainVC = storyboard.instantiateViewController(withIdentifier: "MainView") as! MainView
-        MainVC.mainPokemonNumber = partnerPokemon ?? MainVC.mainPokemonNumber
-        print(partnerPokemon!)
+        fireStoreViewModel?.getPartnerData(for: self.userEmail)
+        pokemonInfoView?.removeFromSuperview()
     }
 }
 

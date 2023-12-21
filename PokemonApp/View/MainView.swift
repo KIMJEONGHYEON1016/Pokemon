@@ -34,15 +34,6 @@ class MainView: UIViewController {
         fetchPartnerPokemon()
         pokeService = PokeService()
         pokemonViewModel = PokemonViewModel(pokeService!)
-        pokemonViewModel?.fetchAllPokemonNames()
-        pokemonViewModel?.fetchAllPokemonTypes()
-        pokemonViewModel?.fetchPokemon(id: self.mainPokemonNumber)
-        pokemonViewModel?.fetchPokemonName(id: self.mainPokemonNumber)
-        self.pokemonViewModel?.fetchPartnerPokemonPower(id: self.mainPokemonNumber)
-        self.PartnerPokemonPower()
-        MoveMainPokemon()
-        PokemonName()
-        PokemonImage()
         }
     
     
@@ -96,12 +87,16 @@ class MainView: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [self] data in
                 mainPokemonNumber = data
-                fireStoreViewModel?.getPartnerData(for: self.userEmail)
+                pokemonViewModel?.fetchAllPokemonNames()
+                pokemonViewModel?.fetchAllPokemonTypes()
                 pokemonViewModel?.fetchPokemon(id: self.mainPokemonNumber)
                 pokemonViewModel?.fetchPokemonName(id: self.mainPokemonNumber)
-                pokemonViewModel?.fetchPartnerPokemonPower(id: self.mainPokemonNumber)
-                PartnerPokemonPower()
-                print(mainPokemonNumber)
+                self.pokemonViewModel?.fetchPartnerPokemonPower(id: self.mainPokemonNumber)
+                self.PartnerPokemonPower()
+                MoveMainPokemon()
+                PokemonName()
+                PokemonImage()
+                print(data, mainPokemonNumber)
             }.store(in: &cancellables)
     }
     
