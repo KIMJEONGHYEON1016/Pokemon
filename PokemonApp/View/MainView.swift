@@ -17,16 +17,21 @@ class MainView: UIViewController {
     
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
-    var mainPokemonNumber  = 151
+    var mainPokemonNumber: Int = 1 
     var partner: Partner?
     var battlepoint: Int = 0
     private var cancellables = Set<AnyCancellable>()
-
+    var fireStoreViewModel: FireStoreViewModel?
+    var fireStore: FireStoreService?
     let userEmail = UserDefaults.standard.string(forKey: "UserEmailKey")!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fireStore = FireStoreService()
+        fireStoreViewModel = FireStoreViewModel(fireStore!)
+        fireStoreViewModel?.getPartnerData(for: self.userEmail)
+        fetchPartnerPokemon()
         pokeService = PokeService()
         pokemonViewModel = PokemonViewModel(pokeService!)
         pokemonViewModel?.fetchAllPokemonNames()
@@ -38,8 +43,7 @@ class MainView: UIViewController {
         MoveMainPokemon()
         PokemonName()
         PokemonImage()
-        
-    }
+        }
     
     
     
@@ -59,7 +63,7 @@ class MainView: UIViewController {
 
     
     //관찰 후 메인 포켓몬 이미지 변경
-        func PokemonImage() {
+    func PokemonImage() {
             pokemonViewModel?.$PokemonData
                         .receive(on: DispatchQueue.main)
                         .sink { data in
@@ -84,6 +88,21 @@ class MainView: UIViewController {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    //메인 포켓몬 업데이트
+    func fetchPartnerPokemon(){
+        fireStoreViewModel?.$partnerPokemon
+            .receive(on: DispatchQueue.main)
+            .sink { [self] data in
+                mainPokemonNumber = data
+                fireStoreViewModel?.getPartnerData(for: self.userEmail)
+                pokemonViewModel?.fetchPokemon(id: self.mainPokemonNumber)
+                pokemonViewModel?.fetchPokemonName(id: self.mainPokemonNumber)
+                pokemonViewModel?.fetchPartnerPokemonPower(id: self.mainPokemonNumber)
+                PartnerPokemonPower()
+                print(mainPokemonNumber)
+            }.store(in: &cancellables)
     }
     
     //포켓몬 Move

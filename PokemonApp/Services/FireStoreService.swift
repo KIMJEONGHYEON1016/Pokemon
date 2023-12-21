@@ -48,6 +48,22 @@ class FireStoreService {
         }
     }
 
+    
+    func addPartnerPokemon(email: String, partnerPokeNumber: Int) {
+        let docRef = db.collection("포켓몬").document(email)
+        
+        let dataToUpdate: [String: Any] = ["파트너 포켓몬": partnerPokeNumber]
+        
+        docRef.setData(dataToUpdate, merge: true) { error in
+            if let error = error {
+                print("데이터 업데이트 실패: \(error)")
+            } else {
+                print("데이터 업데이트 성공!")
+            }
+        }
+    }
+
+
 
     func getPokemonData(for email: String) -> AnyPublisher<[Int]?, Error> {
             return Future<[Int]?, Error> { promise in
@@ -68,4 +84,42 @@ class FireStoreService {
                 }
             }.eraseToAnyPublisher()
         }
+    
+    
+    func getPartnerData(for email: String) -> AnyPublisher<Int?, Error> {
+        return Future<Int?, Error> { promise in
+            let docRef = self.db.collection("포켓몬").document(email)
+            docRef.getDocument { document, error in
+                if let error = error {
+                    promise(.failure(error))
+                } else if let document = document, document.exists {
+                    let data = document.data()
+                    if let pokeNumber = data?["파트너 포켓몬"] as? Int {
+                        promise(.success(pokeNumber))
+                    } else {
+                        // If the "파트너 포켓몬" field does not exist, set it to 1
+                        docRef.setData(["파트너 포켓몬": 1], merge: true) { error in
+                            if let error = error {
+                                promise(.failure(error))
+                            } else {
+                                promise(.success(1))
+                            }
+                        }
+                    }
+                } else {
+                    // Create a new document with the specified fields if the document does not exist
+                    docRef.setData(["파트너 포켓몬": 1, "보유 포켓몬": [1]]) { error in
+                        if let error = error {
+                            promise(.failure(error))
+                        } else {
+                            promise(.success(1))
+                        }
+                    }
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
+
 }
+
+

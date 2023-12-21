@@ -171,7 +171,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="포켓몬" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLA-HK-QoN">
-                                <rect key="frame" x="137" y="511.00000000000006" width="121" height="40.666666666666686"/>
+                                <rect key="frame" x="100" y="511.00000000000006" width="193" height="40.666666666666686"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -208,11 +208,11 @@
                             <constraint firstItem="eHO-9A-8IO" firstAttribute="centerX" secondItem="llh-KG-e35" secondAttribute="centerX" id="G5V-s4-wgn"/>
                             <constraint firstItem="Kzn-pd-K0t" firstAttribute="top" secondItem="pOn-29-u9D" secondAttribute="top" constant="40" id="GQ3-Jy-a4H"/>
                             <constraint firstAttribute="bottomMargin" secondItem="W1Y-1D-CUk" secondAttribute="bottom" constant="-54" id="I1U-CR-naA"/>
+                            <constraint firstItem="GLA-HK-QoN" firstAttribute="leading" secondItem="pOn-29-u9D" secondAttribute="leading" constant="100" id="Kfs-c9-csG"/>
                             <constraint firstItem="eHO-9A-8IO" firstAttribute="top" secondItem="Hba-mu-vfm" secondAttribute="bottom" constant="128" id="Q9P-7e-7AD"/>
                             <constraint firstItem="AQI-oV-AQA" firstAttribute="centerX" secondItem="llh-KG-e35" secondAttribute="centerX" id="THI-vu-4xR"/>
-                            <constraint firstItem="GLA-HK-QoN" firstAttribute="centerX" secondItem="llh-KG-e35" secondAttribute="centerX" constant="1" id="Td5-iu-ex2"/>
                             <constraint firstItem="pOn-29-u9D" firstAttribute="bottom" secondItem="AQI-oV-AQA" secondAttribute="bottom" constant="29" id="VOW-uu-2cr"/>
-                            <constraint firstItem="pOn-29-u9D" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="GLA-HK-QoN" secondAttribute="trailing" constant="135" id="Vlz-be-gwb"/>
+                            <constraint firstItem="pOn-29-u9D" firstAttribute="trailing" secondItem="GLA-HK-QoN" secondAttribute="trailing" constant="100" id="VPd-5i-ARf"/>
                             <constraint firstItem="Kzn-pd-K0t" firstAttribute="centerX" secondItem="llh-KG-e35" secondAttribute="centerX" id="cb7-TS-NYn"/>
                             <constraint firstItem="AQI-oV-AQA" firstAttribute="leading" secondItem="pOn-29-u9D" secondAttribute="leading" constant="143" id="gN2-P8-VsR"/>
                             <constraint firstItem="AQI-oV-AQA" firstAttribute="centerX" secondItem="W1Y-1D-CUk" secondAttribute="centerX" id="gxi-pk-ySo"/>

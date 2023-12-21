@@ -138,7 +138,7 @@ class BattleView: UIViewController {
             let userEmail = UserDefaults.standard.string(forKey: "UserEmailKey")!
             //파이어스토어에 잡은 포켓몬 등록
             self.fireStoreViewModel?.addNewPokemonNumber(email: userEmail, newPokeNumber: self.id)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 self.showWinScreen()
             
             }

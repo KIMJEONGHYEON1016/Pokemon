@@ -40,6 +40,7 @@ let typeMapping: [String: String] = [
     "fire": "불",
     "water": "물",
     "grass": "풀",
+    "electric": "전기",
     "psychic": "에스퍼",
     "ice": "얼음",
     "dragon": "용",
@@ -95,6 +96,8 @@ struct ThemeColor {
             return ThemeColor.water
         case "풀":
             return ThemeColor.grass
+        case "전기":
+            return ThemeColor.electric
         case "에스퍼":
             return ThemeColor.psychic
         case "얼음":
