@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         FirebaseApp.configure()
-        
+        UserDefaults.standard.set(1, forKey: "Partner")
+
         return true
     }
     

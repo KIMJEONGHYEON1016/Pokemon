@@ -15,26 +15,33 @@ class MainView: UIViewController {
     @IBOutlet weak var MainPokemon: UIImageView!
     @IBOutlet weak var battlePoint: UILabel!
     
+    @IBOutlet weak var pokemonDex: UIButton!
+    @IBOutlet weak var myPokemon: UIButton!
+    
+    
     var pokeService: PokeService?
     var pokemonViewModel: PokemonViewModel?
-    var mainPokemonNumber: Int = 1 
+    var mainPokemonNumber: Int?
     var partner: Partner?
     var battlepoint: Int = 0
     private var cancellables = Set<AnyCancellable>()
     var fireStoreViewModel: FireStoreViewModel?
     var fireStore: FireStoreService?
     let userEmail = UserDefaults.standard.string(forKey: "UserEmailKey")!
-
+    var isExpanded = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pokemonDex.isHidden = true
+        myPokemon.isHidden = true
         fireStore = FireStoreService()
         fireStoreViewModel = FireStoreViewModel(fireStore!)
         fireStoreViewModel?.getPartnerData(for: self.userEmail)
         fetchPartnerPokemon()
         pokeService = PokeService()
         pokemonViewModel = PokemonViewModel(pokeService!)
-        }
+    }
     
     
     
@@ -42,28 +49,28 @@ class MainView: UIViewController {
     //관찰 후 메인 포켓몬 이름 변경
     func PokemonName() {
         pokemonViewModel?.$PokemonSpecies
-                    .receive(on: DispatchQueue.main)
-                    .sink { [weak self] data in
-                        guard let mainPokemon = data?.names?[2], let nameString = mainPokemon.name else {
-                            return
-                        }
-                        self?.MainPokemonName.text = nameString
-                    }
-                    .store(in: &cancellables)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] data in
+                guard let mainPokemon = data?.names?[2], let nameString = mainPokemon.name else {
+                    return
+                }
+                self?.MainPokemonName.text = nameString
+            }
+            .store(in: &cancellables)
     }
-
+    
     
     //관찰 후 메인 포켓몬 이미지 변경
     func PokemonImage() {
-            pokemonViewModel?.$PokemonData
-                        .receive(on: DispatchQueue.main)
-                        .sink { data in
-                            guard let imageUrlString = data?.sprites?.other?.home?.frontDefault,
-                                  let imageUrl = URL(string: imageUrlString) else { return }
-                            self.MainPokemon.sd_setImage(with: imageUrl, completed: nil)
-                        }.store(in: &cancellables)
-        }
-
+        pokemonViewModel?.$PokemonData
+            .receive(on: DispatchQueue.main)
+            .sink { data in
+                guard let imageUrlString = data?.sprites?.other?.home?.frontDefault,
+                      let imageUrl = URL(string: imageUrlString) else { return }
+                self.MainPokemon.sd_setImage(with: imageUrl, completed: nil)
+            }.store(in: &cancellables)
+    }
+    
     //파트너 포켓몬 능력치
     func PartnerPokemonPower(){
         pokemonViewModel?.$PartnerPokemonPower
@@ -87,16 +94,14 @@ class MainView: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [self] data in
                 mainPokemonNumber = data
-                pokemonViewModel?.fetchAllPokemonNames()
-                pokemonViewModel?.fetchAllPokemonTypes()
-                pokemonViewModel?.fetchPokemon(id: self.mainPokemonNumber)
-                pokemonViewModel?.fetchPokemonName(id: self.mainPokemonNumber)
-                self.pokemonViewModel?.fetchPartnerPokemonPower(id: self.mainPokemonNumber)
+                pokemonViewModel?.fetchPokemon(id: self.mainPokemonNumber!)
+                pokemonViewModel?.fetchPokemonName(id: self.mainPokemonNumber!)
+                self.pokemonViewModel?.fetchPartnerPokemonPower(id: self.mainPokemonNumber!)
+                PokemonImage()
                 self.PartnerPokemonPower()
                 MoveMainPokemon()
                 PokemonName()
-                PokemonImage()
-                print(data, mainPokemonNumber)
+                
             }.store(in: &cancellables)
     }
     
@@ -138,7 +143,7 @@ class MainView: UIViewController {
         if let keyWindowScene = UIApplication.shared.connectedScenes
             .compactMap({ $0 as? UIWindowScene })
             .first(where: { $0.activationState == .foregroundActive }),
-            let keyWindow = keyWindowScene.windows.first(where: { $0.isKeyWindow }) {
+           let keyWindow = keyWindowScene.windows.first(where: { $0.isKeyWindow }) {
             
             keyWindow.addSubview(startView)
             
@@ -148,7 +153,7 @@ class MainView: UIViewController {
             }
         }
     }
-
+    
     @IBAction func BattleBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let battleVC = storyboard.instantiateViewController(withIdentifier: "BattleView") as! BattleView
@@ -171,4 +176,23 @@ class MainView: UIViewController {
         MyPokemonColletionVC.modalPresentationStyle = .fullScreen
         present(MyPokemonColletionVC, animated: true)
     }
+    @IBAction func menuBtn(_ sender: Any) {
+        UIView.animate(withDuration: 0.3) {
+            if self.pokemonDex.isHidden {
+                self.pokemonDex.isHidden = false
+                self.myPokemon.isHidden = false
+                self.pokemonDex.transform = CGAffineTransform(translationX: 0, y: 40)
+                self.myPokemon.transform = CGAffineTransform(translationX: 0, y: 80)
+            } else {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.pokemonDex.transform = .identity
+                    self.myPokemon.transform = .identity
+                }) { _ in
+                    self.pokemonDex.isHidden = true
+                    self.myPokemon.isHidden = true
+                }
+            }
+        }
+    }
+
 }

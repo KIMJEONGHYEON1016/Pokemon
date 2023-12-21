@@ -14,7 +14,8 @@ class FireStoreViewModel {
     private var cancellables = Set<AnyCancellable>()
     
     @Published var pokemonID: FireStoreModel?
-    @Published var partnerPokemon: Int = 1
+    @Published var partnerPokemon: Int = Int(UserDefaults.standard.string(forKey: "Partner")!) ?? 1
+
     
     init(_ FireStore: FireStoreService) {
         self.FireStore = FireStore

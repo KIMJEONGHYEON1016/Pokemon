@@ -47,6 +47,8 @@ class MyPokemonColletionView: UIViewController {
     @objc func backgroundTapped(_ sender: UITapGestureRecognizer) {
         let touchPoint = sender.location(in: view)
         if pokemonInfoView != nil && !pokemonInfoView!.frame.contains(touchPoint) {
+            pokemonInfoView?.subviews.forEach { $0.removeFromSuperview() }
+
             pokemonInfoView?.removeFromSuperview()
         }
     }
@@ -66,10 +68,11 @@ class MyPokemonColletionView: UIViewController {
     }
 
     @IBAction func DismissButton(_ sender: Any) {
-        self.dismiss(animated: true)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let MainVC = storyboard.instantiateViewController(withIdentifier: "MainView") as? MainView else { return }
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(MainVC, animated: false)
+        self.dismiss(animated: true)
+        
     }
     func DismissButton (){
         dismissBtn.layer.cornerRadius = dismissBtn.frame.height / 2
@@ -116,22 +119,20 @@ class MyPokemonColletionView: UIViewController {
     }
     
     func PokemonText(label: UILabel) {
-        pokemonViewModel?.$PokemonText
-                    .receive(on: DispatchQueue.main)
-                    .sink { data in
-                        if data?.flavor_text_entries?[23].language.name == "ko" {
-                            guard let PokemonText = data?.flavor_text_entries?[23], let textString = PokemonText.flavor_text else {
-                                return
-                            }
-                            label.text = textString
-                        } else {
-                            guard let PokemonText = data?.flavor_text_entries?[24], let textString = PokemonText.flavor_text else {
-                                return
-                            }
-                            label.text = textString
+        for i in 10...30 {
+            pokemonViewModel?.$PokemonText
+                .receive(on: DispatchQueue.main)
+                .sink { data in
+                    if data?.flavor_text_entries?[i].language.name == "ko" {
+                        guard let PokemonText = data?.flavor_text_entries?[i], let textString = PokemonText.flavor_text else {
+                            return
                         }
+                        label.text = textString
                     }
-                    .store(in: &cancellables)
+                }
+            
+                .store(in: &cancellables)
+        }
     }
     
     @objc func imageViewTapped(_ sender: UITapGestureRecognizer) {
@@ -148,7 +149,7 @@ class MyPokemonColletionView: UIViewController {
             
             
             
-            let nameLabel = UILabel(frame: CGRect(x: 220, y: 10, width: 100, height: 50))
+            let nameLabel = UILabel(frame: CGRect(x: 220, y: 10, width: 120, height: 50))
             nameLabel.textAlignment = .center
             nameLabel.textColor = UIColor.white
             nameLabel.numberOfLines = 0
@@ -178,7 +179,7 @@ class MyPokemonColletionView: UIViewController {
             Pokemontext.textAlignment = .center
             Pokemontext.textColor = UIColor.white
             Pokemontext.numberOfLines = 0
-            Pokemontext.font = UIFont.boldSystemFont(ofSize: 23)
+            Pokemontext.font = UIFont.boldSystemFont(ofSize: 20)
             
             let partnerBtn = UIButton(frame: CGRect(x: 30, y: 370, width: 300, height: 40))
             partnerBtn.layer.cornerRadius = 8
@@ -233,15 +234,15 @@ class MyPokemonColletionView: UIViewController {
             PokemonType1.backgroundColor = ThemeColor.typeColor(type: PokemonType1.text!)
             pokemonInfoView?.backgroundColor = ThemeColor.typeColor(type: PokemonType1.text!).withAlphaComponent(0.8)
             
+            pokemonViewModel?.fetchPokemonText(id: pokeNumber[row!])
             pokemonViewModel?.fetchPokemonGenera(id: pokeNumber[row!])
             pokemonViewModel?.fetchPokemonWeight(id: pokeNumber[row!])
             pokemonViewModel?.fetchPokemonHeight(id: pokeNumber[row!])
-            pokemonViewModel?.fetchPokemonText(id: pokeNumber[row!])
             
+            PokemonText(label: Pokemontext)
             PokemonGenera(label: generaLabel)
             PokemonHeight(label: heightLabel)
             PokemonWeight(label: weightLabel)
-            PokemonText(label: Pokemontext)
             
             if let imageUrl = URL(string: imageUrlString) {
                 pokemonImageView.sd_setImage(with: imageUrl, completed: nil)  //이미지 설정
@@ -262,6 +263,7 @@ class MyPokemonColletionView: UIViewController {
         partnerPokemon = pokeNumber[row!]
         fireStoreViewModel?.addPartnerPokemon(email: self.userEmail, partnerPokeNumber: partnerPokemon!)
         fireStoreViewModel?.getPartnerData(for: self.userEmail)
+        UserDefaults.standard.set(partnerPokemon, forKey: "Partner")
         pokemonInfoView?.removeFromSuperview()
     }
 }
