@@ -120,6 +120,10 @@ class BattleView: UIViewController {
     
     //공격
     @objc func handleTap(_ gesture: UITapGestureRecognizer) {
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+                generator.prepare()
+                generator.impactOccurred()
+        
         if energy <= self.winEnergy {
             if (partner?.attack)!-((enemy?.defense)! + (enemy?.hp)!)/7 < 1 {
                 energy += 1
