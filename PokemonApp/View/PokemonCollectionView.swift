@@ -123,16 +123,7 @@ extension PokemonCollectionView: UICollectionViewDataSource {
 //액션과 관련됨
 extension PokemonCollectionView: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        let height = scrollView.frame.size.height
-        
-        // 스크롤이 끝에 닿았을 때 추가 데이터 로드
-        if offsetY > contentHeight - height {
-            DispatchQueue.main.async {
-                self.pokemonCollection.reloadData()
-            }
-        }
+       
     }
 }
 

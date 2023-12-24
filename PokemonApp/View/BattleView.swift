@@ -125,10 +125,10 @@ class BattleView: UIViewController {
                 generator.impactOccurred()
         
         if energy <= self.winEnergy {
-            if (partner?.attack)!-((enemy?.defense)! + (enemy?.hp)!)/7 < 1 {
+            if (partner?.attack)!-((enemy?.defense)! + (enemy?.hp)!)/5 < 1 {
                 energy += 1
             } else {
-                energy += (partner?.attack)!-((enemy?.defense)! + (enemy?.hp)!)/7
+                energy += (partner?.attack)!-((enemy?.defense)! + (enemy?.hp)!)/5
                 print("energy 변수의 값: \(energy)")
             }
         }else{
@@ -187,10 +187,10 @@ class BattleView: UIViewController {
     func startEnergyDecrement() {
         timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { [weak self] timer in
             // 0.3초마다 energy를 감소시킴
-            if (self!.enemy!.attack) - ((self!.partner!.defense) + (self!.partner!.hp))/7 < 1 {
+            if (self!.enemy!.attack) - ((self!.partner!.defense) + (self!.partner!.hp))/5 < 1 {
                 self!.energy -= 1
             }
-            self?.energy -= self!.enemy!.attack - ((self!.partner!.defense) + (self!.partner!.hp))/7
+            self?.energy -= self!.enemy!.attack - ((self!.partner!.defense) + (self!.partner!.hp))/5
             print("energy 변수의 값: \(self?.energy ?? 0)")
             
             // energy가 0 이하로 떨어졌을 때 timer를 중지시킴

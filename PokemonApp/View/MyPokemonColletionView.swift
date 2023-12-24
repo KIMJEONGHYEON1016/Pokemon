@@ -17,6 +17,7 @@ class MyPokemonColletionView: UIViewController {
     let userEmail = UserDefaults.standard.string(forKey: "UserEmailKey")!
     var pokeNumber: [Int] = []
     var pokemonTypes : [[String]] = UserDefaults.standard.array(forKey: "allPokemonTypes") as! [[String]]
+    var pokemonNames : [String] = UserDefaults.standard.array(forKey: "allPokemonNames")! as! [String]
     var pokemonInfoView: UIView?
     var partnerPokemon: Int?
     var row: Int?
@@ -220,7 +221,7 @@ class MyPokemonColletionView: UIViewController {
             self.row = imageView.tag // Tag 값을 사용해 IndexPath.row 값을 가져옴
             let imageUrlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokeNumber[row!]).png"
             //이름 설정
-            nameLabel.text = UserDefaults.standard.array(forKey: "allPokemonNames")![pokeNumber[row!]-1] as? String
+            nameLabel.text = pokemonNames[pokeNumber[row!]-1]
             if pokemonTypes[pokeNumber[row!]-1].count == 1 {
                 PokemonType1.text = pokemonTypes[pokeNumber[row!]-1][0]
                 pokemonInfoView?.addSubview(PokemonType1)
