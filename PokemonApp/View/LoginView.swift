@@ -105,14 +105,11 @@ class LoginView: UIViewController {
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    // Publisher가 성공적으로 완료된 경우 (오류가 발생하지 않은 경우)
-                    
                     break
                 case .failure(let error):
                     print("Error occurred: \(error)")
                 }
             }, receiveValue: { userData in
-                // Publisher로부터 값을 받는 클로저
                 UserDefaults.standard.set(userData.email, forKey: "UserEmailKey")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 guard let MainVC = storyboard.instantiateViewController(withIdentifier: "MainView") as? MainView else { return }

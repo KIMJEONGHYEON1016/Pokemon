@@ -54,6 +54,8 @@ class MyPokemonColletionView: UIViewController {
         }
     }
 
+    
+    //포켓몬 미니 이미지
     func PokemonMiniImage() {
         fireStoreViewModel?.$pokemonID
             .receive(on: DispatchQueue.main)
@@ -68,6 +70,8 @@ class MyPokemonColletionView: UIViewController {
             }.store(in: &cancellables)
     }
 
+    
+    
     @IBAction func DismissButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let MainVC = storyboard.instantiateViewController(withIdentifier: "MainView") as? MainView else { return }
@@ -75,6 +79,9 @@ class MyPokemonColletionView: UIViewController {
         self.dismiss(animated: true)
         
     }
+    
+    
+    //dismiss 버튼 UI
     func DismissButton (){
         dismissBtn.layer.cornerRadius = dismissBtn.frame.height / 2
         dismissBtn.layer.borderWidth = 1.0 // 테두리 두께 설정
@@ -136,8 +143,9 @@ class MyPokemonColletionView: UIViewController {
         }
     }
     
+    
+    //미니 이미지를 터치 액션
     @objc func imageViewTapped(_ sender: UITapGestureRecognizer) {
-           // 원하는 작업 수행
         if pokemonInfoView?.superview == nil {
             pokemonInfoView = UIView(frame: CGRect(x: 16, y: 199, width: 360, height: 450))
             let pokemonImageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 190, height: 200))
@@ -260,6 +268,7 @@ class MyPokemonColletionView: UIViewController {
         }
     }
     
+    //파트너 포켓몬 지정
     @objc func partnerButtonTapped() {
         partnerPokemon = pokeNumber[row!]
         fireStoreViewModel?.addPartnerPokemon(email: self.userEmail, partnerPokeNumber: partnerPokemon!)

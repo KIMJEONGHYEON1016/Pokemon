@@ -8,6 +8,5 @@
 import Foundation
 
 struct FireStoreModel {
-    // 포켓몬 데이터 모델 정의
     var pokeNumber: [Int]
 }

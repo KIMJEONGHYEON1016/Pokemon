@@ -14,7 +14,6 @@ class MainView: UIViewController {
     @IBOutlet weak var MainPokemonName: UILabel!
     @IBOutlet weak var MainPokemon: UIImageView!
     @IBOutlet weak var battlePoint: UILabel!
-    
     @IBOutlet weak var pokemonDex: UIButton!
     @IBOutlet weak var myPokemon: UIButton!
     
@@ -128,32 +127,7 @@ class MainView: UIViewController {
             completion()
         }
     }
-    
-    func showStartScreen() {
-        let startView = UIView(frame: UIScreen.main.bounds)
-        startView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        let startLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 400, height: 300))
-        startLabel.center = startView.center
-        startLabel.textAlignment = .center
-        startLabel.textColor = UIColor.red
-        startLabel.text = "전투 돌입!"
-        startLabel.numberOfLines = 0
-        startView.addSubview(startLabel)
         
-        if let keyWindowScene = UIApplication.shared.connectedScenes
-            .compactMap({ $0 as? UIWindowScene })
-            .first(where: { $0.activationState == .foregroundActive }),
-           let keyWindow = keyWindowScene.windows.first(where: { $0.isKeyWindow }) {
-            
-            keyWindow.addSubview(startView)
-            
-            // 원하는 시간 이후에 화면을 제거하고 dismiss 실행
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                startView.removeFromSuperview()
-            }
-        }
-    }
-    
     @IBAction func BattleBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let battleVC = storyboard.instantiateViewController(withIdentifier: "BattleView") as! BattleView

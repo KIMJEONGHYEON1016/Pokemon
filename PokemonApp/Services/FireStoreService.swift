@@ -86,6 +86,7 @@ class FireStoreService {
         }
     
     
+    //파트너 포켓몬 데이터 획득
     func getPartnerData(for email: String) -> AnyPublisher<Int?, Error> {
         return Future<Int?, Error> { promise in
             let docRef = self.db.collection("포켓몬").document(email)
@@ -97,8 +98,7 @@ class FireStoreService {
                     if let pokeNumber = data?["파트너 포켓몬"] as? Int {
                         promise(.success(pokeNumber))
                     } else {
-                        // If the "파트너 포켓몬" field does not exist, set it to 1
-                        docRef.setData(["파트너 포켓몬": 1], merge: true) { error in
+                        docRef.setData(["파트너 포켓몬": 1], merge: true) { error in     //기본으로 1번 포켓은 지정
                             if let error = error {
                                 promise(.failure(error))
                             } else {
@@ -107,7 +107,6 @@ class FireStoreService {
                         }
                     }
                 } else {
-                    // Create a new document with the specified fields if the document does not exist
                     docRef.setData(["파트너 포켓몬": 1, "보유 포켓몬": [1]]) { error in
                         if let error = error {
                             promise(.failure(error))
