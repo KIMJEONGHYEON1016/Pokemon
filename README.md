@@ -46,13 +46,15 @@ pokeAPI를 사용해 포켓몬 게임을 제작하였습니다.<br>
 - 메뉴바 버튼을 통해 도감, 마이포켓몬으로 이동이 가능합니다.
 
 ### 전투화면
-<img src="https://github.com/KIMJEONGHYEON1016/Pokemon/assets/127102729/4439185c-00c2-4f2f-b4d6-e059622bb2a2" width="300" height="650" > <img src="https://github.com/KIMJEONGHYEON1016/Pokemon/assets/127102729/6d75547f-e9a1-4a93-9235-1c47184d434c" width="300" height="650"> 
+<img src="https://github.com/KIMJEONGHYEON1016/Pokemon/assets/127102729/4439185c-00c2-4f2f-b4d6-e059622bb2a2" width="300" height="650" > <img src="https://github.com/KIMJEONGHYEON1016/Pokemon/assets/127102729/6d75547f-e9a1-4a93-9235-1c47184d434c" width="300" height="650"> <img src="https://github.com/KIMJEONGHYEON1016/Pokemon/assets/127102729/853e4306-22e3-4386-a7d3-33aa7990e2d4" width="300" height="650">
 
 - 랜덤으로 야생포켓몬과 조우하게 되며, 전투하기 버튼을 누를 시 터치 1번당 전투력에 비례하여 실시간으로 상단 게이지 바가 변하게 됩니다. (야생 포켓몬에 전투력에 비례하여 지속적으로 감소)
 
 - 게이지바가 100%에 달성할 시 몬스터볼 애니메이션이 실행되며 포켓몬을 포획합니다.
 
 - 잡은 포켓몬은 마이 포켓몬에서 확인할 수 있습니다.
+
+- 패배 시 메인화면으로 이동합니다.
 
 ### 포켓몬 도감
 <img src="https://github.com/KIMJEONGHYEON1016/Pokemon/assets/127102729/906c9cbf-ed84-486f-925a-723852f36eb2" width="300" height="650" >
