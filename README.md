@@ -1,5 +1,5 @@
 - **`Project` :** PokemonApp <br>
-- **`Stack` :**  <br>- **`Swift`** <br> - **`UIKit`** <br> - **`Combine`** <br> - **`SDWebImage`** <br> - **`FLAnimatedImage`** <br> - **`FirebaseFirestore`**
+- **`Skill & Stack` :**  <br>- **`Swift`** <br> - **`UIKit`** <br> - **`Combine`** <br> - **`SDWebImage`** <br> - **`FLAnimatedImage`** <br> - **`FirebaseFirestore`**
  <br> - **`GoogleSignIn`**  
 
 ## 전체적인 소개
