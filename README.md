@@ -10,7 +10,7 @@ pokeAPI를 사용해 포켓몬 게임을 제작하였습니다.<br>
 배포용이 아니기에 구글 로그인 만을 지원하고 있으며, **FireStore**에 데이터를 저장하고 있습니다.  <br>
 
 ## 앱 아이콘
-![appicon](https://github.com/KIMJEONGHYEON1016/Pokemon/assets/127102729/2cf55c8c-beaa-44c6-9cad-2b9a7b0ccd78)
+![appicon](https://github.com/KIMJEONGHYEON1016/Pokemon/assets/127102729/2fb75599-8993-4943-bcb5-09c109f61b68)
 
 ## 화면 소개 및 기능 
 
