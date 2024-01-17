@@ -1,6 +1,6 @@
 - **`Project` :** PokemonApp <br>
 - **`Skill & Stack` :**  <br>- **`Swift`** <br> - **`UIKit`** <br> - **`Combine`** <br> - **`SDWebImage`** <br> - **`FLAnimatedImage`** <br> - **`FirebaseFirestore`**
- <br> - **`GoogleSignIn`**  
+ <br> - **`GoogleSignIn`** <br> - **`CocoaPods`**  <br> - **`SPM`** 
 
 ## 전체적인 소개
 토이 프로젝트인 포켓몬 앱입니다.<br>
